@@ -1,0 +1,4 @@
+Ts, Peak Strengths and Energies: 
+0.0658048048048048 968.4357306002616 85.57977691106235
+0.13758858858858858 7569.08391040634 234.0638840150697
+Sanity check, these two shouldn't be too different. Minimum U in solution: 1.3999900176236031 Minimum U studied: 0.0 What about other side: 446.12425889103315 and 449.80000000000001

@@ -1,0 +1,10 @@
+# VMD for LINUXAMD64, version 1.9.4a43 (June 11, 2020)
+# Log file '/home/pkawak/git/2022-Kawak_Dissertation/figures/ch2_method/fig-confs_plus_structs/configs_lowT/log2.txt', created by user pkawak
+mol delete 3
+display resetview
+mol addrep 4
+display resetview
+mol new {melt.xyz} type {xyz} first 0 last -1 step 1 waitfor 1 autobonds 0
+animate style Loop
+# VMD for LINUXAMD64, version 1.9.4a43 (June 11, 2020)
+# end of log file.

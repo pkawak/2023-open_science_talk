@@ -1,0 +1,1 @@
+rsync pkawak@ssh.fsl.byu.edu:/zhome/pkawak/data/mcpc_data/SandPlike/Lx10.25/melting/exp_tsweep/opt_0.31/1/* .

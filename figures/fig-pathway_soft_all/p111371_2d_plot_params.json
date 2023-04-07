@@ -1,0 +1,10 @@
+{
+  "start": 5760,
+  "end": 12000,
+  "initialPoint_i": 0,
+  "initialPoint_j": 226,
+  "endPoint_i": 1,
+  "endPoint_j": 1810,
+  "point_i": [0,0],
+  "point_j": [960,1811]
+}

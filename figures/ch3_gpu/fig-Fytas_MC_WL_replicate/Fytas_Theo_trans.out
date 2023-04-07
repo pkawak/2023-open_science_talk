@@ -1,0 +1,4 @@
+lambda transition Temp se(T) Elow Ehigh
+1.12 T_collapse 0.647 0.004 -176 -176
+1.12 T_freezing 0.544 0.008 -466 -296
+1.04 T_freezing 0.433 0.006 -517 -73
