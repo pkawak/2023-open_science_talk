@@ -15,6 +15,7 @@
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage{overpic}
+\usepackage{soul}
 \setbeamertemplate{bibliography item}{\insertbiblabel} %% Remove book symbol from references and add number
 \usepackage[style=ieee,backend=bibtex,citetracker=true]{biblatex} %footnote refs
 \addbibresource{refs.bib}
@@ -38,6 +39,12 @@
 \definecolor{FigGreen}{HTML}{009B72}
 \definecolor{FigOrange}{HTML}{E36414}
 \definecolor{FigPurple}{HTML}{985277}
+\definecolor{csdark}{HTML}{2b303a}
+\definecolor{csgreen}{HTML}{0c7c59}
+\definecolor{csgray}{HTML}{bac1b8}
+\definecolor{csblue}{HTML}{00008B}
+\definecolor{usfgold}{HTML}{CFC493}
+\definecolor{usfgreen}{HTML}{006747}
 %\definecolor{FigDarkGreen}{HTML}{}
 
 % set color for hyperlinks
@@ -54,6 +61,8 @@
 \setbeamertemplate{blocks}[rounded][shadow=false]
 \setbeamercolor{block title}{fg=white, bg=darkblue}
 \setbeamercolor{block body}{fg=black, bg=lightblue}
+%\setbeamercolor{block title}{fg=white, bg=usfgreen}
+%\setbeamercolor{block body}{fg=black, bg=usfgold}
 
 % customize enumerate and item, including color and spacing
 \setbeamercolor*{item}{fg=darkblue}
@@ -124,7 +133,7 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes,positioning,arrows,backgrounds,fit,chains}
 
-% tikz define invisible: 
+% tikz define invisible:
 % http://tex.stackexchange.com/questions/55806/mindmap-tikzpicture-in-beamer-reveal-step-by-step/55849#55849
 \tikzset{
   invisible/.style={opacity=0.2},
@@ -133,34 +142,34 @@
     \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
   },
   startstop/.style={
-    rectangle, 
+    rectangle,
     rounded corners,
-    minimum width=3cm, 
+    minimum width=3cm,
     minimum height=1cm,
-    align=center, 
-    draw=black, 
+    align=center,
+    draw=black,
     fill=red!30
     },
   process/.style={
-    rectangle, 
-    minimum width=3cm, 
-    minimum height=1cm, 
-    align=center, 
-    draw=black, 
+    rectangle,
+    minimum width=3cm,
+    minimum height=1cm,
+    align=center,
+    draw=black,
     fill=blue!30
     },
   decision/.style={
-    rectangle, 
-    minimum width=3cm, 
-    minimum height=1cm, align=center, 
-    draw=black, 
+    rectangle,
+    minimum width=3cm,
+    minimum height=1cm, align=center,
+    draw=black,
     fill=green!30
     },
   arrow/.style={thick,->,>=stealth},
   dec/.style={
-    ellipse, 
-    align=center, 
-    draw=black, 
+    ellipse,
+    align=center,
+    draw=black,
     fill=green!30
     },
 }
@@ -182,7 +191,7 @@
 % (1) movie15 package
 %\usepackage{movie15}
 % \includemovie[text={\includegraphics[width=5cm]{figs/lam_t0.pdf}}]{}{}{figs/lam.avi}
-% Comments: 
+% Comments:
 %   * apparently depreciated (superceded by movie9), but seems to play movies fine
 %   * (bad) Puts a pushpin icon over the video
 %   * (good) Actually embeds the movie, so don't need to include a separate folder
@@ -202,7 +211,7 @@
 %   * (bad) Does not embed the movie. Need a separate videos folder.
 %   * (bad) Puts black or white bars when playing movie with controls (changes size of
 %     the movie to fit the controls into the frame).
-%   * (aside) Appears that the backend of the player (same as movie15 pacakge) can be 
+%   * (aside) Appears that the backend of the player (same as movie15 pacakge) can be
 %     changed from gstreamer to vlc. Used apt-get install phonon-backend-vlc. Made bars
 %     white, not black, which was a marginal improvement.
 %     http://tex.stackexchange.com/questions/163089/okular-to-play-embedded-videos-in-beamer
@@ -235,7 +244,7 @@
   \begin{tikzpicture}
     \node[ fill, color=white, text=white, rounded corners, inner sep=4pt,
            align=center, minimum width=4cm, minimum height=\baselineskip
-    ] 
+    ]
     {\large #1\par};
   \end{tikzpicture}
 }
@@ -244,8 +253,8 @@
 \newcommand{\blocknofill}[1]{
   \begin{tikzpicture}
     \node[ draw, color=blue, very thick, rounded corners, minimum width=4cm, minimum height=\baselineskip ] %fill, color=white, text=white, rounded corners, inner sep=4pt,
-   %        align=center, 
-   % ] 
+   %        align=center,
+   % ]
     {\large #1\par};
   \end{tikzpicture}
 }
@@ -255,7 +264,7 @@
   \begin{tikzpicture}
     \node[ fill, color=darkblue, text=white, rounded corners, inner sep=4pt,
            align=center, minimum width=4cm, minimum height=\baselineskip
-    ] 
+    ]
     {\normalsize #1\par};
   \end{tikzpicture}
 }
@@ -265,7 +274,7 @@
   \begin{tikzpicture}
     \node[ fill, color=darkblue, text=white, rounded corners, inner sep=4pt,
            align=center, minimum width=4cm, minimum height=\baselineskip
-    ] 
+    ]
     {\large #1\par};
   \end{tikzpicture}
 }
@@ -275,7 +284,7 @@
   \begin{tikzpicture}
     \node[ fill, color=DarkGreen, text=black, rounded corners, inner sep=4pt,
            align=center, minimum width=4cm, minimum height=\baselineskip
-    ] 
+    ]
     {\LARGE #1\par};
   \end{tikzpicture}
 }
@@ -285,7 +294,7 @@
   \begin{tikzpicture}
     \node[ fill, color=blue, text=white, rounded corners, inner sep=4pt,
            align=center, minimum width=4cm, minimum height=\baselineskip
-    ] 
+    ]
     {\LARGE #1\par};
   \end{tikzpicture}
 }
@@ -345,7 +354,7 @@
       };
 
       % BYU logo
-      \node [draw=none, align=center, anchor=north west] 
+      \node [draw=none, align=center, anchor=north west]
         at ([xshift=-0.05in, yshift=0.05in] current page.north west)
       {
         \includegraphics[keepaspectratio, width=0.75in]{./figs/BYU_IM22a.pdf}
@@ -356,12 +365,12 @@
       {
         \includegraphics[keepaspectratio, width=0.6in]{./figs/TreeGroupLogo.pdf}
       };
-  
+
       % title
       \usebeamercolor{title}
       \node [text width=0.85\paperwidth, align=center, draw=none, fill=black, rounded corners,
              fill opacity=0.6, text opacity=1, inner sep=5pt,
-             below = 0.3in of current page.center, anchor=center] 
+             below = 0.3in of current page.center, anchor=center]
       {
         {
           \huge \titlecolor{} \inserttitle\par
@@ -369,9 +378,9 @@
         \vspace{12pt}
         {
           \Large \bottomcolor{}\insertauthor \par
-        } 
+        }
         \vspace{8pt}
-        { 
+        {
           \bottomcolor{} \insertinstitute \par
         }
 
@@ -395,7 +404,7 @@
       };
 
     \end{tikzpicture}
-    
+
 }
 % }}}
 
@@ -410,156 +419,214 @@
 
 \begin{document}
 
+%\begin{frame}[plain]
+%% Slide 0.1: Title
+%  % customize title page using the template in the preamble
+%  \titlepage
+%\end{frame}
+%
+% title page
 \begin{frame}[plain]
-% Slide 0.1: Title
-  % customize title page using the template in the preamble
-  \titlepage
+% {{{
+
+  \begin{tikzpicture}[remember picture, overlay]
+
+    % --- background ---
+    % background photo
+    \node [draw=none, align=center, fill=csdark, minimum width=\paperwidth,
+      minimum height=\paperheight] at (current page.center){};
+
+    % rectangle sash
+    \node [draw=none, align=center, fill=csgreen, minimum width=1.5\paperwidth,
+      minimum height=0.35\paperheight, rotate around={30:(0., 0.)}]
+      at ([xshift=5.0cm] current page.center){};
+
+    % --- title and author info ---
+    % title
+    \usebeamercolor{title}
+    \node [text width=0.85\paperwidth, align=left, draw=none, fill=none,
+           below right =0.6cm and 0.3cm of current page.north west, anchor=north west]
+    {
+      {\Huge\color{csgray}Free Energy Analysis of Crystal\\Nucleation of Semiflexible Polymers\par}
+      \vspace{6pt}
+      {\Large\color{csgray}\ul{Pierre Kawak}$^{*}$, Douglas R. Tree$^{\dagger}$\par}
+      \vspace{3pt}
+      {\normalsize\color{csgray}$^{*}$USF CBME, $^{\dagger}$BYU Chemical Engineering\par}
+
+    };
+
+    % add location
+    \node [draw=none, text width=0.8\paperwidth, above right=0.02 cm and 0 cm of current page.south west, anchor=south west] (loc) {
+    \color{csgray}\raggedright{}Open Science, Twitch.TV\par
+    };
+
+    % add date
+    \node [draw=none, text width=0.6\paperwidth, above left = 0cm and 0cm of current page.south east, anchor=south east] (date) {
+      \color{csgray}\raggedleft{}Apr.~7, 2023\par
+    };
+
+    % --- logos ---
+    % BYU logo
+    \node [draw=none, align=center, anchor=north east] at (current page.north east) (BYU)
+    {
+      \includegraphics[keepaspectratio, width=0.75in]{./figs/BYU_IM22a.pdf}
+    };
+
+    % group logo
+    \node [draw=none, align=center, anchor=east, left=-0.20cm of BYU] (group)
+    {
+      \includegraphics[keepaspectratio, width=0.6in]{./figs/TreeGroupLogo.pdf}
+    };
+
+    % --- acknowledgements ---
+
+    % ACS PRF logo
+    \node[inner sep=2pt, align=center, anchor=west,
+      fill=white, rounded corners, draw=csblue,
+      text width=2.35cm, minimum height=1.75cm]
+      at ([xshift=0.5cm, yshift=-1cm]current page.west) (PRF)
+    {
+      \includegraphics[width=2.0cm]{./figs/ACS-PRF_logo.jpg}
+    };
+
+    % BYU ORC
+  \node[inner sep=2pt, align=center, anchor=west,
+    fill=white, rounded corners, draw=csblue,
+    text width=2.35cm, minimum height=1.75cm, right=0.3cm of PRF]
+  {
+    {\small BYU RC\\[3pt]}
+    \includegraphics[width=1.85cm]{./figs/BYU_ORC_chassis.jpg}
+  };
+
+    % --- pictures ---
+
+    % simulation config in circle
+    \begin{scope}
+      \clip ([xshift=4.0cm, yshift=-0.5cm] current page.center) circle (2cm);
+      \node[draw=none, fill=none, align=center]
+        at ([xshift=4.0cm, yshift=-0.5cm] current page.center)
+      {
+        %\includegraphics[keepaspectratio, width=7.75cm]{./figs/WL_config_2000x100.png}
+        \includegraphics[keepaspectratio, width=1.01\paperwidth]{figs/fig-title_page_conf.png}
+      };
+      \node[circle, draw=csblue, line width=2pt, minimum size=4cm]
+        at ([xshift=4.0cm, yshift=-0.5cm] current page.center) {};
+    \end{scope}
+
+    \begin{scope}
+      \clip ([xshift=0.9cm, yshift=-2.3cm] current page.center) circle (2cm);
+      \node[draw=none, fill=none, align=center]
+        at ([xshift=0.9cm, yshift=-2.3cm] current page.center)
+      {
+        \includegraphics[keepaspectratio, width=5cm]{./figs/cryst_struct_yz.pdf}
+      };
+      \node[circle, draw=csblue, line width=2pt, minimum size=4cm]
+        at ([xshift=0.9cm, yshift=-2.3cm] current page.center) {};
+    \end{scope}
+
+  \end{tikzpicture}
+
+% }}}
 \end{frame}
 
-\begin{frame}[t]{Let's address the elephant in the room}
-%% {{{
-
-  \centering
-%  \begin{tikzpicture}
-%    \node[text width=0.6\columnwidth, align=center, inner sep=0pt, xshift=-0.3] (A) {
-%    \includegraphics[width=\textwidth]{figs/Tree_Group_Photo_2022.jpg}
-%    }; 
-%
-%    \node[text width=0.36\columnwidth, align=center, above left= 3.15cm and -6.0cm of A.east, anchor=north east, inner sep=0pt] (B) {
-%    \includegraphics[width=\textwidth]{figs/GSC_Group_Photo_2021.jpg}
-%    }; 
-%
-%    \node[text width=0.36\columnwidth, align=center, above left= -1.0cm and -6.0cm of A.east, anchor=north east, inner sep=0pt] (C) {
-%    \includegraphics[width=\textwidth]{figs/Tree_Group_Photo_cake.jpg}
-%    }; 
-%
-%  \end{tikzpicture}
-  \only<2->{
-  \begin{columns}[T]
-
-  \column{0.39\textwidth}
-    \centering
-
-    \blocktitle{Samson}
-
-    \vspace{\baselineskip}
-    \includegraphics[trim=30 0 60 0, clip, height=5cm]{./figs/samson2.jpeg}
-
-  \column{0.245\textwidth}
-    \centering
-
-    \blocktitle{Goku}
-
-    \includegraphics[height=5cm]{./figs/goku.jpeg}
-
-  \column{0.245\textwidth}
-    \centering
-
-    \only<3>{
-    \blocktitle{Me}
-
-    \includegraphics[height=5cm]{figs/Pierre_pic.jpg}
-    }
-
-  \end{columns}
-  }
-
-%% }}}
-\end{frame}
+{
+\setbeamercolor{background canvas}{bg=}
+\includepdf[pages=-]{Scientist_Talk_Intro.pdf}
+}
 
 % Section 0: Introduction
-\begin{frame}[t]{Polymer properties depend on their crystallinity}
+\begin{frame}[c]{Why study polymer crystallization?}
 % Slide 0.2: The why? Polymers rule & cryst imp. to properties.
 % {{{
 
   \vspace{1ex}
-  \begin{columns}
+  \begin{columns}[T]
 
-    \column{0.5\textwidth}
+    \column{0.45\textwidth}
       \centering
       \blocktitle{\% industrial production}
-      \includegraphics[]{figs/fig-semicrystal_fraction.pdf}
+      \vspace{-3pt}
+      \includegraphics[width=0.65\textwidth]{figs/fig-semicrystal_fraction.pdf}
 
-    \only<2>{
-    \column{0.5\textwidth}
+      \begin{block}{}
+        \begin{itemize}
+          \item 260 Mt/year (vast quantities!)
+          \item Small \% improvements matter
+          \item Develop green alternatives?
+        \end{itemize}
+      \end{block}
+
+      {\scriptsize Geyer et al.\ Sci.~Adv.\ 3, e1700782, (2017)\par}
+
+    \column{0.45\textwidth}
       \centering
-      \blocktitle{Polyethylene product properties}
-      \includegraphics[]{figs/fig-cryst_props.pdf}
-    }
+      \blocktitle{Tensile Strength of polyethylene}
+      \vspace{1pt}
+      \includegraphics[width=0.62\textwidth]{figs/fig-cryst_props.pdf}
+
+      \begin{block}{}
+        \begin{itemize}
+          \item LDPE = 10 MPa ($ < 50\%$)
+          \item HPDE = 25 MPa ($ \approx 70\%$)
+          \item UHMWPE = 2700 MPa ($\approx 90\%$)
+        \end{itemize}
+      \end{block}
+
+      {\scriptsize van Dingenen.\ Mat.~\& Des.\ 10, 101--104 (1989)\\[0pt]
+      polymerdatabase.com\par}
 
   \end{columns}
 % }}}
 \end{frame}
 
-\begin{frame}[t]{Molecular Dynamics (MD) suggests different crystal nucleation in polymers}
+\begin{frame}[c]{Why study polymer crystallization (theoretical)?}
 % {{{
-% Slide 0.4 Varied results from NEMD sims.
-  \vspace{-0.5\baselineskip}
 
-  \begin{columns}[T]
+  \begin{columns}
 
-  \column{0.5\textwidth}
+  \column{0.45\textwidth}
 
     \centering
-    \includegraphics[height=0.5\textwidth]{figs/fig-Rutledge_crystal_crop.pdf}
-    \vspace{0.5\baselineskip}
+    \includegraphics[width=0.95\textwidth]{figs/pe_crystals.pdf}
 
-    \begin{block}{Non-equilibrium MD experiment 1}
-      \begin{itemize}
-        \item Cylindrical crystal nucleus
-        \item Crystal size is a good order parameter
-        \item No intermediate phases/states
-        \item One-step crystallization
-%        \item General agreement with classical models 
-      \end{itemize}
-    \end{block}
-
-    \vspace{4pt}
-    {\small{}Yi et al.~Macromolecules (2013)\par}
-
-  \column{0.5\textwidth}
+  \column{0.45\textwidth}
 
     \centering
-    \includegraphics[height=0.5\textwidth]{figs/fig-Hall_crystal_crop.pdf}
-    \vspace{0.5\baselineskip}
-
-    \begin{block}{Non-equilibrium MD experiment 2}
-      \begin{itemize}
-        \item Crystal nucleus not cylindrical
-        \item Crystal size is not only order parameter
-        \item Crystal nucleates in nematic droplet
-        \item Two-step crystallization
-%        \item Disagrees with classical models
-      \end{itemize}
-    \end{block}
-
-    \vspace{4pt}
-    {\small{}Hall et al.~J.~Phys.~Chem.~B.~(2020)\par}
+    \includegraphics[width=0.95\textwidth]{figs/milner2011-fig1.pdf}
 
   \end{columns}
 
-  \onslide<2>{
-  \begin{tikzpicture}[remember picture, overlay]
+  \vspace{0.5\baselineskip}
 
-    \node[fill=white, minimum width=10cm, minimum height=3cm, 
-          rounded corners=0.2cm, anchor=center, opacity=0.7] 
-          at (current page.center) {
-    };
+  \begin{columns}[T]
 
-    \node[text width=9cm, fill=lightblue, draw=darkblue, very thick, rounded corners=0.2cm, anchor=center] 
-          at (current page.center) {
-    The controversy extends to:
-    \begin{itemize} 
-      \item Dynamic SAXS/WAXS measurements
-      \item Recrystallization and melt memory experiments
-      \item Direct observations of precursors
-    \end{itemize}
-    };
+  \column{0.45\textwidth}
 
-  \end{tikzpicture}
-  }
+    \centering
+    \begin{block}{}
+      \begin{itemize}
+        \item Crystallization is a multiscale \& nonequilibrium process
+      \end{itemize}
+    \end{block}
 
-% }}}
+    \vspace{0.5\baselineskip}
+    {\scriptsize Vaughan \& Bassett.\ Comprehensive Polymer Science and Supplements.~2, 415--457 (1989)\par}
+
+  \column{0.45\textwidth}
+
+    \centering
+    \begin{block}{}
+      \begin{itemize}
+        \item Developing a theory is a long-standing challenge!
+      \end{itemize}
+    \end{block}
+
+    \vspace{0.5\baselineskip}
+    {\scriptsize Milner.~Soft Matter.~7, 2909--2917, (2011)\par}
+
+  \end{columns}
+
+%% }}}
 \end{frame}
 
 \begin{frame}[c]{Contradictions in simulations (and experiments) have led to new theories}
@@ -571,37 +638,61 @@
   \column{0.5\textwidth}
 
     \centering
-    \blocktitle{Classical Nucleation Theory for Polymers}
-
     \vspace{0.2\baselineskip}
+    \blocktitle{Classical Nucleation Theory}
+    \vspace{0.5\baselineskip}
+
     \includegraphics[scale=1.05]{figs/fig-CNTP_Free_Energy.pdf}
 
     \vspace{0.65\baselineskip}
-    {\scriptsize 
+    {\scriptsize
     Lauritzen and Hoffman.~J.~Chem.~Phys.~(1959)\par
     Lauritzen and Hoffman.~J.~Appl.~Phys.~(1973)\par
     Schultz.~Polym. Cryst.~(2001)\par
     Yi et al.~J.~Chem.~Phys.~(2009)\par
     }
 
+  \onslide<2>{
+  \begin{tikzpicture}[remember picture, overlay]
+
+    \node[fill=white, minimum width=7.5cm, minimum height=9cm,
+          rounded corners=0.2cm, anchor=center, opacity=0.7]
+          at ([xshift=-3.8cm, yshift=-1.0cm] current page.center) {
+    };
+
+    \node[text width=6cm, fill=lightblue, draw=darkblue, very thick, rounded corners=0.2cm, anchor=center]
+          at ([xshift=-3.8cm] current page.center) {
+    \begin{itemize}
+      \item Dynamic SAXS/WAXS measurements
+      \item Recrystallization and melt memory experiments
+      \item Direct observations of precursors
+    \end{itemize}
+    };
+
+  \end{tikzpicture}
+  }
+
   \column{0.5\textwidth}
 
+  \onslide<2>{
     \centering
+    \vspace{0.2\baselineskip}
     \blocktitle{``SOMM'' Hypothesis}
-    \vspace{1.2\baselineskip}
+    \vspace{0.5\baselineskip}
 
     \includegraphics[scale=1.05]{figs/fig-SOMM_Free_Energy.pdf}
 
     \vspace{0.7\baselineskip}
-    {\scriptsize 
-    Strobl.~The Physics of Polymers.~(2007)\par
-    Olmsted.~Phys.~Rev.~Lett.~(1998)\par
-    Milner.~Soft Matter.~(2011)\par
-    Welch and Muthukumar.~Phys.~Rev.~Lett.~(2001)\par
+    {\scriptsize
+    \textcolor{csgreen}{S}trobl.~The Physics of Polymers.~(2007)\par
+    \textcolor{csgreen}{O}lmsted.~Phys.~Rev.~Lett.~(1998)\par
+    \textcolor{csgreen}{M}ilner.~Soft Matter.~(2011)\par
+    Welch and \textcolor{csgreen}{M}uthukumar.~Phys.~Rev.~Lett.~(2001)\par
     }
-  
+
+  }
+
   \end{columns}
-%TODO add references
 
 % }}}
 \end{frame}
@@ -612,7 +703,7 @@
 
   % Key idea
   \begin{columns}[T, onlytextwidth]
-  
+
   \column{0.50\textwidth}
 
     \centering
@@ -629,14 +720,14 @@
     \centering
     \vspace{-12pt}
     \includegraphics[width=0.8\textwidth]{figs/fig-key_idea_shorter.pdf}
-  
+
   \end{columns}
 
   \vspace{15pt}
 
   % Our approach
   \begin{columns}[T, onlytextwidth]
-  
+
   \column{0.50\textwidth}
 
     \centering
@@ -655,7 +746,7 @@
 
 %    \onslide<3>{
 %      \begin{tikzpicture}[remember picture, overlay]
-%        \node[minimum width=7cm, minimum height=1.75cm, fill=white, opacity=0.7] 
+%        \node[minimum width=7cm, minimum height=1.75cm, fill=white, opacity=0.7]
 %             at ([xshift=-4.0cm, yshift=-0.88cm] current page.center) {
 %        };
 %      \end{tikzpicture}
@@ -669,29 +760,33 @@
 
     \begin{tikzpicture}[remember picture, overlay]
 
-      \node[] { 
+      \node[] {
         \includegraphics[width=0.9\textwidth]{figs/fig-MCFEL_simple.pdf}
       };
 
     \end{tikzpicture}
     \only<1>{
       \begin{tikzpicture}[remember picture, overlay]
-          \node[minimum width=14cm, minimum height=4.0cm, fill=white, opacity=1.0] 
+          \node[minimum width=14cm, minimum height=4.0cm, fill=white, opacity=1.0]
                at ([xshift=-0.3cm, yshift=-1.8cm] current page.center) {
           };
 
       \end{tikzpicture}
     }
-  
+
   \end{columns}
 
-%  \par
-%
-%  \begin{tikzpicture}[remember picture, overlay]
-%    \node[text width=8cm, align=center, anchor=south] at ([yshift=0.1cm] current page.south) {
-%      \scriptsize{}Kawak, Banks, \& Tree.~J.~Chem.~Phys. (2021)\par
-%    };
-%  \end{tikzpicture}
+  \par
+  \par
+  \par
+  \par
+  \par
+
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[text width=8cm, align=center, anchor=south] at ([yshift=0.1cm] current page.south) {
+      \scriptsize{}Kawak, Banks, \& Tree.~J.~Chem.~Phys. 155, 214902 (2021)\par
+    };
+  \end{tikzpicture}
 
 % }}}
 \end{frame}
@@ -718,11 +813,11 @@
 %%    \vspace{2.0\baselineskip}
 %%    \includegraphics[width=1.1\textwidth]{figs/colored_melt_mem.pdf}
 %%    }
-%%    
+%%
 %%    \onslide<3>{
 %%    \vspace{1.0\baselineskip}
 %%    \begin{block}{Other Observations}
-%%      \begin{itemize} 
+%%      \begin{itemize}
 %%        \item Initial larger scale ordering in SAXS/WAXS measurements
 %%        \item Deviant Crystallization and Recrystallization line
 %%        \item Intermediate Phase Observations
@@ -802,7 +897,7 @@
       \begin{minipage}{.4\textwidth}
         \raggedleft
 
-        \includegraphics[trim=0 100 267 0, clip, width=\textwidth]{../figures/ch2_method/fig-polymer_moves/fig-polymer_moves.pdf}
+        \includegraphics[trim=0 100 267 0, clip, width=\textwidth]{../figures/fig-polymer_moves/fig-polymer_moves.pdf}
       \end{minipage}
     };
 
@@ -819,87 +914,86 @@
       \begin{minipage}{.4\textwidth}
         \raggedleft
 
-        \includegraphics[trim=0 100 267 0, clip, width=\textwidth]{../figures/ch2_method/fig-polymer_moves/fig-polymer_moves.pdf}
+        \includegraphics[trim=0 100 267 0, clip, width=\textwidth]{../figures/fig-polymer_moves/fig-polymer_moves.pdf}
       \end{minipage}
     };
     }
 
     \node[boxstyle, below=0.5 of crystallization] (y3)
     {
-      Nucleation in a semiflexible oligomer\par
-      \includegraphics[width=0.45\textwidth]{figs/fig-pathway_ToC_chains.pdf}
+      Effect of model selection on nucleation in polymers\\[2pt] %Self-Assembly\\[3pt]
+      \begin{minipage}{.4\textwidth}
+      %  \centering
+        \raggedright
+        \includegraphics[width=0.95\textwidth]{figs/fig-hard_step_phase_diag.pdf}
+      \end{minipage}
+      \begin{minipage}{.4\textwidth}
+        \raggedleft
+        \includegraphics[width=0.95\textwidth]{figs/fig-hard_harm_phase_diag.pdf}
+      \end{minipage}
+
     };
 
     \only<4>{
     \node[hilite, below=0.5 of crystallization] (y3)
     {
-      Nucleation in a semiflexible oligomer\par
-      \includegraphics[width=0.45\textwidth]{figs/fig-pathway_ToC_chains.pdf}
+      Effect of model selection on nucleation in polymers\\[2pt] %Self-Assembly\\[3pt]
+      \begin{minipage}{.4\textwidth}
+      %  \centering
+        \raggedright
+        \includegraphics[width=0.95\textwidth]{figs/fig-hard_step_phase_diag.pdf}
+      \end{minipage}
+      \begin{minipage}{.4\textwidth}
+        \raggedleft
+        \includegraphics[width=0.95\textwidth]{figs/fig-hard_harm_phase_diag.pdf}
+      \end{minipage}
     };
     }
 
     \node[boxstyle, right=0.5cm of anchor.north east, anchor=north west] (vesicles)
     {
-      GPU-accelerated Monte Carlo\par
-%      \vspace{\baselineskip}
-      \begin{minipage}{.4\textwidth}
-      %  \centering
-        \raggedright
-        \includegraphics[width=0.95\textwidth]{figs/just_cube_wdims_wpols.pdf}
-      \end{minipage}
-      \begin{minipage}{.4\textwidth}
-        \raggedleft
-        \includegraphics[width=0.95\textwidth]{figs/checkerboard_cube_wpols.pdf}
-      \end{minipage}
+      Nucleation in a semiflexible oligomer\par
+      \includegraphics[width=0.45\textwidth]{figs/fig-pathway_ToC_chains.pdf}
     };
 
     \only<3>{
     \node[hilite, right=0.5cm of anchor.north east, anchor=north west] (vesicles)
     {
-      GPU-accelerated Monte Carlo\par
-%      \vspace{\baselineskip}
-      \begin{minipage}{.4\textwidth}
-      %  \centering
-        \raggedright
-        \includegraphics[width=0.95\textwidth]{figs/just_cube_wdims_wpols.pdf}
-      \end{minipage}
-      \begin{minipage}{.4\textwidth}
-        \raggedleft
-        \includegraphics[width=0.95\textwidth]{figs/checkerboard_cube_wpols.pdf}
-      \end{minipage}
+      Nucleation in a semiflexible oligomer\par
+      \includegraphics[width=0.45\textwidth]{figs/fig-pathway_ToC_chains.pdf}
     };
     }
 
     \only<5>{
     \node[hilite, below=0.5 of vesicles] (pnesa)
     {
-      Effect of model selection on nucleation in polymers\\[2pt] %Self-Assembly\\[3pt]
+      GPU-accelerated Monte Carlo\par
+%      \vspace{\baselineskip}
       \begin{minipage}{.4\textwidth}
       %  \centering
         \raggedright
-        \includegraphics[width=0.95\textwidth]{figs/fig-hard_step_phase_diag.pdf}
+        \includegraphics[width=0.95\textwidth]{figs/just_cube_wdims_wpols.pdf}
       \end{minipage}
       \begin{minipage}{.4\textwidth}
         \raggedleft
-        \includegraphics[width=0.95\textwidth]{figs/fig-hard_harm_phase_diag.pdf}
+        \includegraphics[width=0.95\textwidth]{figs/checkerboard_cube_wpols.pdf}
       \end{minipage}
-
     };
     }
 
     \node[boxstyle, below=0.5 of vesicles] (pnesa)
     {
-      Effect of model selection on nucleation in polymers\\[2pt] %Self-Assembly\\[3pt]
+      GPU-accelerated Monte Carlo\par
+%      \vspace{\baselineskip}
       \begin{minipage}{.4\textwidth}
       %  \centering
         \raggedright
-        \includegraphics[width=0.95\textwidth]{figs/fig-hard_step_phase_diag.pdf}
+        \includegraphics[width=0.95\textwidth]{figs/just_cube_wdims_wpols.pdf}
       \end{minipage}
       \begin{minipage}{.4\textwidth}
         \raggedleft
-        \includegraphics[width=0.95\textwidth]{figs/fig-hard_harm_phase_diag.pdf}
+        \includegraphics[width=0.95\textwidth]{figs/checkerboard_cube_wpols.pdf}
       \end{minipage}
-
     };
 
   \end{tikzpicture}
@@ -929,11 +1023,11 @@
 %%    \vspace{2.0\baselineskip}
 %%    \includegraphics[width=1.1\textwidth]{figs/colored_melt_mem.pdf}
 %%    }
-%%    
+%%
 %%    \onslide<3>{
 %%    \vspace{1.0\baselineskip}
 %%    \begin{block}{Other Observations}
-%%      \begin{itemize} 
+%%      \begin{itemize}
 %%        \item Initial larger scale ordering in SAXS/WAXS measurements
 %%        \item Deviant Crystallization and Recrystallization line
 %%        \item Intermediate Phase Observations
@@ -979,7 +1073,7 @@
 
   \only<3>{
     \begin{columns}[T]
-    
+
     \column{0.5\paperwidth}
       \centering
       \vspace{-.2\baselineskip}
@@ -1014,20 +1108,20 @@
 % {{{
 % Slide 0.10: Moveset stuffs
   \centering
-%  \includegraphics[height=0.9\textheight]{../figures/ch2_method/fig-polymer_moves/fig-polymer_moves.pdf}
+%  \includegraphics[height=0.9\textheight]{../figures/fig-polymer_moves/fig-polymer_moves.pdf}
   \begin{columns}[T]
   \column{0.3\textwidth}
     \centering
     \blocktitle{Kink}
-    \includegraphics[angle=-90, width=0.6\textwidth]{../figures/ch2_method/fig-polymer_moves/crank_shaft_move.pdf}
+    \includegraphics[angle=-90, width=0.6\textwidth]{../figures/fig-polymer_moves/crank_shaft_move.pdf}
   \column{0.3\textwidth}
     \centering
     \blocktitle{End-Kink}
-    \includegraphics[angle=-90, width=0.6\textwidth]{../figures/ch2_method/fig-polymer_moves/end_rotation_move.pdf}
+    \includegraphics[angle=-90, width=0.6\textwidth]{../figures/fig-polymer_moves/end_rotation_move.pdf}
   \column{0.3\textwidth}
     \centering
     \blocktitle{Reptation}
-    \includegraphics[angle=-90, width=0.6\textwidth]{../figures/ch2_method/fig-polymer_moves/reptation_move.pdf}
+    \includegraphics[angle=-90, width=0.6\textwidth]{../figures/fig-polymer_moves/reptation_move.pdf}
   \end{columns}
 %TODO add orange stuff and leave only two of em
 % }}}
@@ -1092,85 +1186,6 @@
 \againframe<3>{outline} % {{{ % }}}
 % Slide 1.11: Domain decomposition enables parallel computation
 
-\begin{frame}[t]{Domain decomposition enables parallel computation}
-% {{{
-% Slide 1.12: Domain decomposition enables parallel computation
-
-  \only<1>{
-    \centering
-    \vspace{.5\baselineskip}
-
-    \includegraphics[height=0.85\textheight]{figs/just_cube_wdims_wpols.pdf}
-  }
-
-  \only<2>{
-  \begin{columns}[T]
-
-  \column{0.5\textwidth}
-    \centering
-    \vspace{-.5\baselineskip}
-
-    \blocktitle{Serial MC}
-    \vspace{.5\baselineskip}
-
-    \includegraphics[width=0.85\textwidth]{figs/just_cube_wdims_wpols.pdf}
-
-  \column{0.5\textwidth}
-    \centering
-    \vspace{-.5\baselineskip}
-
-    \blocktitle{Parallel MC}
-    \vspace{.5\baselineskip}
-
-    \includegraphics[width=0.85\textwidth]{figs/checkerboard_cube_wpols.pdf}
-
-  \end{columns}
-  }
-  
-% }}}
-\end{frame}
-
-\begin{frame}[t]{Although the parallel algorithm was faster, it was not enough}
-% {{{
-% Slide 1.13: Domain decomposition enables parallel computation
-
-  \begin{columns}[T]
-
-  \column{0.5\textwidth}
-    \centering
-    \vspace{.5\baselineskip}
-    \includegraphics[]{../figures/ch3_gpu/fig-speedup_new/fig-speedup.pdf}
-
-  \column{0.5\textwidth}
-
-    \centering
-    \begin{block}{What we've done}
-      Built GPU-accelerated WLMC utilizing
-      \begin{itemize} 
-      \item Domain and function decomposition
-      \item Advanced polymer moveset
-    \end{itemize}
-    \end{block}
-
-    \begin{block}{What we've learnt}
-      \begin{itemize} 
-        \item Speedups are modest
-        \item Can't simulate large polymers
-        \item Focus on small models
-        \item Focus on accelerated biased sampling
-        \item Build FEL with MC methods
-      \end{itemize}
-    \end{block}
-
-  \end{columns}
-  
-%% }}}
-\end{frame}
-
-% Section 2: Nucleation mechanisms in a semiflexible oligomer.
-\againframe<4>{outline} % {{{ % }}}
-% Slide 1.14: Section 2: Nucleation mechanisms in a semiflexible oligomer.
-
 \begin{frame}[c]{We have started with a simple model of semiflexible oligomers}
 % {{{
 % Slide 2.15: We have started with a simple model of semiflexible oligomers
@@ -1179,7 +1194,7 @@
   \column{0.55\textwidth}
 
     \centering
-    \vspace{-1.0\baselineskip}
+%    \vspace{-1.0\baselineskip}
 
       \begin{equation*}
         U_{\mathrm{tot}} = U_{\mathrm{nonbond}}(r_{ij}) + U_{\mathrm{stretch}}(l) + U_{\mathrm{bend}}(\theta)
@@ -1201,14 +1216,14 @@
         \onslide<2->{
           \begin{equation*}
             U_{\mathrm{nonbond}} =
-            \begin{cases} 
+            \begin{cases}
               \infty & r_{\mathrm{ij}} < \sigma \\
               0 & r_{\mathrm{ij}} \ge \sigma
             \end{cases}
           \end{equation*}
         }
       \end{columns}
-     
+
       \vspace{0.6\baselineskip}
 
       \onslide<3->{
@@ -1246,28 +1261,28 @@
 
         \begin{equation*}
           U_{\mathrm{bend}} =
-          \begin{cases} 
+          \begin{cases}
             -k_{b} & \theta \geq \theta_{\mathrm{s}} \\
-            0 & \theta < \theta_{\mathrm{s}} 
+            0 & \theta < \theta_{\mathrm{s}}
           \end{cases}
         \end{equation*}
       \end{columns}
       }
 
 
-      \onslide<5>{
-        \vspace{0.2\baselineskip}
-
-        \begin{block}{Phase behavior depends on}
-          \begin{itemize}
-		  \item Volume Fraction, $\phi = V_{\mathrm{beads}}/V_{\mathrm{box}}$ 
-            \item Reduced Temperature, $T_{r} = k_{B}T/k_{b}$
-          \end{itemize}
-        \end{block}
-      }
+%      \onslide<5>{
+%        \vspace{0.2\baselineskip}
+%
+%        \begin{block}{Phase behavior depends on}
+%          \begin{itemize}
+%		  \item Volume Fraction, $\phi = V_{\mathrm{beads}}/V_{\mathrm{box}}$
+%            \item Reduced Temperature, $T_{r} = k_{B}T/k_{b}$
+%          \end{itemize}
+%        \end{block}
+%      }
     %  \only<1>{
     %    \begin{tikzpicture}[remember picture, overlay]
-    %        \node[minimum width=14cm, minimum height=4.0cm, fill=white, opacity=1.0] 
+    %        \node[minimum width=14cm, minimum height=4.0cm, fill=white, opacity=1.0]
     %             at ([xshift=-0.3cm, yshift=-1.8cm] current page.center) {
     %        };
 
@@ -1279,13 +1294,46 @@
     \centering
     \vspace{\baselineskip}
 
-    \only<2>   {\includegraphics[width=0.95\textwidth]{../figures/fig-hard_tang_step_model/fig-HS_pair_pot.pdf}}
-    \only<3>   {\includegraphics[width=0.95\textwidth]{../figures/fig-hard_tang_step_model/fig-tangent_bond.pdf}}
-    \only<4>   {\includegraphics[width=0.95\textwidth]{../figures/fig-hard_tang_step_model/fig-stiff_PE.pdf}}
+    \only<2>{\includegraphics[width=0.95\textwidth]{../figures/fig-hard_tang_step_model/fig-HS_pair_pot.pdf}}
+    \only<3>{\includegraphics[width=0.95\textwidth]{../figures/fig-hard_tang_step_model/fig-tangent_bond.pdf}}
+    \only<4>{\includegraphics[width=0.95\textwidth]{../figures/fig-hard_tang_step_model/fig-stiff_PE.pdf}}
     \only<5>{\includegraphics[width=0.95\textwidth]{../figures/fig-hard_tang_step_model/fig-CG_PE_box_zoom.pdf}}
 
   \end{columns}
 % }}}
+\end{frame}
+
+\begin{frame}[c]{The model has only two degrees of freedom}
+% {{{
+% Slide 4: Share details on chosen polymer model (lp/sigma)
+  \begin{columns}[T]
+
+  \column{0.5\textwidth}
+
+    \centering
+    \includegraphics[width=0.65\textwidth]{../figures/fig-hard_tang_step_model/fig-HS_pair_pot.pdf}
+
+    \vspace{14pt}
+    \begin{block}{}
+      \centering
+      Hard Sphere Volume Fraction\\
+      $\phi = N_{c} N_{b} \phi \sigma^{3}/(6 L^{3})$
+    \end{block}
+
+  \column{0.5\textwidth}
+
+    \centering
+    \includegraphics[width=\textwidth]{../figures/fig-step_lp_vs_T/fig-lp_vs_T.pdf}
+%    \includegraphics[height=\textheight]{../figures/fig-step_lp_vs_T/fig-lp_vs_T.pdf}
+
+    \begin{block}{}
+      \centering
+      Reduced Temperature, $T_{r}=kT/\epsilon$ \\
+      (persistence length $l_{p}$ is not independent)
+    \end{block}
+
+  \end{columns}
+%% }}}
 \end{frame}
 
 \begin{frame}<1-2>[label=mcfel]{We studied the phase behavior using a combination of MC methods}
@@ -1305,13 +1353,13 @@
     };
 
     \only<2>{
-    \node[minimum width=10cm, minimum height=3cm, fill=white, opacity=0.7] 
+    \node[minimum width=10cm, minimum height=3cm, fill=white, opacity=0.7]
          at ([yshift=-1.5cm] current page.center) {
     };
     }
 
     \only<3>{
-    \node[minimum width=10cm, minimum height=3cm, fill=white, opacity=0.7] 
+    \node[minimum width=10cm, minimum height=3cm, fill=white, opacity=0.7]
          at ([yshift=1.5cm] current page.center) {
     };
     }
@@ -1319,7 +1367,7 @@
   \end{tikzpicture}
 
 %Refs for: Wang Landau Monte Carlo (WLMC)
-% Wang.~Phys.~Rev.~Lett.~(2001) 
+% Wang.~Phys.~Rev.~Lett.~(2001)
 % Taylor et al.~J.~Chem.~Phys.~(2009)
 %
 %Refs for: Expanded Ensemble Density of States (EXEDOS)
@@ -1444,8 +1492,8 @@
 %    \node[text width=12cm, align=center, above left=1.6cm and -0.0cm of a.east, anchor=north west] (c) {
     \node[text width=8cm, align=center, above left=1.2cm and -0.5cm of a.east, anchor=north west] (c) {
   %    \includegraphics[width=\textwidth]{figs/melt_conf.pdf}
-      %\movie[width=8cm, showcontrols, autostart, borderwidth=0pt, loop]{\includegraphics[width=8cm]{../figures/ch2_method/fig-phase_vids/melt.png}}{../figures/ch2_method/fig-phase_vids/melt.mp4}
-      \includemovie[text={\includegraphics[width=5.7cm]{../figures/ch2_method/fig-phase_vids/melt.png}}, autoplay=true, mouse=true]{5.7cm}{5.7cm}{../figures/ch2_method/fig-phase_vids/melt.mp4}
+      %\movie[width=8cm, showcontrols, autostart, borderwidth=0pt, loop]{\includegraphics[width=8cm]{../figures/fig-phase_vids/melt.png}}{../figures/fig-phase_vids/melt.mp4}
+      \includemovie[text={\includegraphics[width=5.7cm]{../figures/fig-phase_vids/melt.png}}, autoplay=true, mouse=true]{5.7cm}{5.7cm}{../figures/fig-phase_vids/melt.mp4}
       %\includemovie[poster,mouse=true]{8cm}{6cm}{melt.mp4}
     };
 
@@ -1479,8 +1527,8 @@
 
     \node[text width=8cm, align=center, above left=1.2cm and -0.5cm of a.east, anchor=north west] (c) {
 %      \includegraphics[width=\textwidth]{figs/nematic_conf.pdf}
-      %\movie[width=8cm, showcontrols, autostart, borderwidth=0pt, loop]{\includegraphics[width=8cm]{../figures/ch2_method/fig-phase_vids/nematic.png}}{../figures/ch2_method/fig-phase_vids/nematic.mp4}
-      \includemovie[text={\includegraphics[width=5.7cm]{../figures/ch2_method/fig-phase_vids/nematic.png}}, autoplay=true, mouse=true]{5.7cm}{5.7cm}{../figures/ch2_method/fig-phase_vids/nematic.mp4}
+      %\movie[width=8cm, showcontrols, autostart, borderwidth=0pt, loop]{\includegraphics[width=8cm]{../figures/fig-phase_vids/nematic.png}}{../figures/fig-phase_vids/nematic.mp4}
+     \includemovie[text={\includegraphics[width=5.7cm]{../figures/fig-phase_vids/nematic.png}}, autoplay=true, mouse=true]{5.7cm}{5.7cm}{../figures/fig-phase_vids/nematic.mp4}
     };
   \end{tikzpicture}
 
@@ -1513,8 +1561,8 @@
 
     \node[text width=8cm, align=center, above left=1.2cm and -0.5cm of a.east, anchor=north west] (c) {
 %      \includegraphics[width=\textwidth]{figs/cryst_conf.pdf}
-      %\movie[width=8cm, showcontrols, autostart, borderwidth=0pt, loop]{\includegraphics[width=8cm]{../figures/ch2_method/fig-phase_vids/cryst.png}}{../figures/ch2_method/fig-phase_vids/cryst.mp4}
-      \includemovie[text={\includegraphics[width=5.7cm]{../figures/ch2_method/fig-phase_vids/cryst.png}}, autoplay=true, mouse=true]{5.7cm}{5.7cm}{../figures/ch2_method/fig-phase_vids/cryst.mp4}
+      %\movie[width=8cm, showcontrols, autostart, borderwidth=0pt, loop]{\includegraphics[width=8cm]{../figures/fig-phase_vids/cryst.png}}{../figures/fig-phase_vids/cryst.mp4}
+      \includemovie[text={\includegraphics[width=5.7cm]{../figures/fig-phase_vids/cryst.png}}, autoplay=true, mouse=true]{5.7cm}{5.7cm}{../figures/fig-phase_vids/cryst.mp4}
     };
 
   \end{tikzpicture}
@@ -1549,7 +1597,7 @@
 % Slide 2.25: To understand interplay of crystal and nematic order, we need 2D FELs
 
   \begin{columns}[T]
-  
+
   \column{0.5\textwidth}
     \centering
 
@@ -1593,14 +1641,14 @@
       \end{itemize}
     \end{block}
     \onslide<3->{{\scriptsize Fu et al.~J.~Chem.~Inf.~Model.~(2020)}}
-     
+
   \end{columns}
 
   \par\leavevmode
 
   \only<1>{
     \begin{tikzpicture}[remember picture, overlay]
-        \node[minimum width=6cm, minimum height=5.0cm, fill=white, opacity=1.0] 
+        \node[minimum width=6cm, minimum height=5.0cm, fill=white, opacity=1.0]
              at ([xshift=-2.9cm, yshift=-2.7cm] current page.east) {
         };
 
@@ -1641,14 +1689,14 @@
          \item<4>{Cooperative transition}
        \end{itemize}
      \end{block}
-     
+
   \end{columns}
 
   \leavevmode\par
 
   \only<1>{
     \begin{tikzpicture}[remember picture, overlay]
-        \node[minimum width=6cm, minimum height=5cm, fill=white, opacity=1.0] 
+        \node[minimum width=6cm, minimum height=5cm, fill=white, opacity=1.0]
              at ([xshift=-2.9cm, yshift=-2.7cm] current page.east) {
         };
 
@@ -1685,7 +1733,7 @@
 
   \end{columns}
 
-  \par 
+  \par
 
   \begin{tikzpicture}[remember picture, overlay]
     \node[text width=8cm, align=center, anchor=south] at ([yshift=0.1cm] current page.south) {
@@ -1735,7 +1783,8 @@
 %% }}}
 \end{frame}
 
-\begin{frame}<1-2>[c]{Wrapping up: Semiflexible oligomers crystallize in cooperative mechanism}
+%\begin{frame}<1-2>[c]{Wrapping up: Semiflexible oligomers crystallize in cooperative mechanism}
+\begin{frame}[c]{``This work opens more questions than it answers''}
 % {{{
 % Slide 2.31: Wrapping up: Semiflexible oligomers crystallize in cooperative mechanism
 
@@ -1748,7 +1797,7 @@
     \vspace{0.5\baselineskip}
     \begin{block}{For a system of simple semiflexible oligomers}
       \begin{itemize}
-      \item Equilibrium FELs are valuable 
+      \item Equilibrium FELs are valuable
       \item No intermediate between melt and crystal
       \item Nematic and positional ordering \emph{cooperate} in crystallization mechanism
     \end{itemize}
@@ -1758,10 +1807,11 @@
   \vspace{0.6\baselineskip}
     \onslide<2>{
     \begin{block}{How general are our conclusions?}
-      \begin{itemize} 
+      \begin{itemize}
         \item Hard step--stiff rods have unique nucleation
-        \item More complex intermolecular potentials?
+        \item How sensitive to intermolecular potential?
         Bead softness? Continuous stiffness? etc.
+        \item What about molecular weight?
       \end{itemize}
     \end{block}
     }
@@ -1777,174 +1827,773 @@
     \includegraphics[width=\textwidth]{../figures//fig-pathway_10p25/subfig-pathway_10p25_MFEP.pdf}
 
   \end{columns}
-  
+
 % }}}
 \end{frame}
 
 % Section 3: Effect of Model selection on phase behavior.
-\againframe<5>{outline} % {{{ % }}}
+\againframe<4>{outline} % {{{ % }}}
 % Slide 3.32: Domain decomposition enables parallel computation
 
-\begin{frame}[t]{How sensitive are our results to the selected model?}
+%\begin{frame}[t]{Molecular Dynamics (MD) suggests different crystal nucleation in polymers}
+\begin{frame}[c]{Controversy in non-equilibrium MD simulations of polyethylene}
 % {{{
-% Slide 3.33: How sensitive are our results to the selected model?
-
-  \vspace{-\baselineskip}
-
-  \raggedright
-  \begin{fleqn}
-  \begin{equation*}
-    U_{\mathrm{tot}} = U_{\mathrm{nonbond}}(r_{ij}) \ \ \ \  +  \ \ \ \ U_{\mathrm{stretch}}(l) \ \ \ \ \ \ \ \ \ \ \ \ +  \ \ \ \ \ \ \ \ \ \ \ \ U_{\mathrm{bend}}(\theta)
-  \end{equation*}
-  \end{fleqn}
-
+% Slide 0.4 Varied results from NEMD sims.
   \vspace{-0.5\baselineskip}
 
-  \onslide<2->{
   \begin{columns}[T]
 
-  \column{0.19\textwidth}
+  \column{0.5\textwidth}
 
     \centering
+    \includegraphics[height=0.5\textwidth]{figs/fig-Rutledge_crystal_crop.pdf}
+    \vspace{0.5\baselineskip}
 
-      \textcolor{FigGreen}{\Large \emph{Hard} spheres}
-      \vspace{.5\baselineskip}
+    \begin{block}{Non-equilibrium MD experiment 1}
+      \begin{itemize}
+        \item Cylindrical crystal nucleus
+        \item Crystal size is a good order parameter
+        \item No intermediate phases/states
+        \item One-step crystallization
+%        \item General agreement with classical models
+      \end{itemize}
+    \end{block}
 
-      \includegraphics[scale=0.65]{../figures/fig-all_potentials/fig-pairs/fig-pair_hard.pdf}
+    \vspace{4pt}
+    {\small{}Yi et al.~Macromolecules (2013)\par}
 
-  \column{0.29\textwidth}
+  \column{0.5\textwidth}
 
     \centering
-      \textcolor{FigOrange}{\Large \emph{Rod} bonds}
-      \vspace{1\baselineskip}
+    \includegraphics[height=0.5\textwidth]{figs/fig-Hall_crystal_crop.pdf}
+    \vspace{0.5\baselineskip}
 
-      \includegraphics[scale=0.65]{../figures/fig-all_potentials/fig-bonds/fig-bond_rod.pdf}
+    \begin{block}{Non-equilibrium MD experiment 2}
+      \begin{itemize}
+        \item Crystal nucleus not cylindrical
+        \item Crystal size is not only order parameter
+        \item Crystal nucleates in nematic droplet
+        \item Two-step crystallization
+%        \item Disagrees with classical models
+      \end{itemize}
+    \end{block}
 
-  \column{0.52\textwidth}
-
-    \centering
-      \textcolor{FigPurple}{\Large \emph{Discrete} (stepwise) stiffness}
-
-      \includegraphics[scale=0.65]{../figures/fig-all_potentials/fig-bend/fig-bend_step.pdf}
+    \vspace{4pt}
+    {\small{}Hall et al.~J.~Phys.~Chem.~B.~(2020)\par}
 
   \end{columns}
 
-  }
+%  \onslide<2>{
+%  \begin{tikzpicture}[remember picture, overlay]
+%
+%    \node[fill=white, minimum width=10cm, minimum height=3cm,
+%          rounded corners=0.2cm, anchor=center, opacity=0.7]
+%          at (current page.center) {
+%    };
+%
+%    \node[text width=9cm, fill=lightblue, draw=darkblue, very thick, rounded corners=0.2cm, anchor=center]
+%          at (current page.center) {
+%    The controversy extends to:
+%    \begin{itemize}
+%      \item Dynamic SAXS/WAXS measurements
+%      \item Recrystallization and melt memory experiments
+%      \item Direct observations of precursors
+%    \end{itemize}
+%    };
+%
+%  \end{tikzpicture}
+%  }
 
-    \vspace{1\baselineskip}
+% }}}
+\end{frame}
 
-  \onslide<3->{
+\begin{frame}[c]{What differences could account for the disagreement?}
+% {{{
+
   \begin{columns}[T]
 
-  \column{0.19\textwidth}
+  \column{0.55\textwidth}
     \centering
+    \blocktitle{Models}
+    \vspace{-0.4\baselineskip}
 
-    \textcolor{FigGreen}{\Large \emph{Soft} spheres}
+    \begin{columns}[T]
+    \column{0.49\textwidth}
+      \centering
+      \begin{block}{}
+        Yi et al: PYS Model
+        \begin{itemize}
+          \item 12-6 shifted LJ
+          \item Cutoff at 2 $\sigma$
+          \item 1 CH$_{2}$ per bead
+        \end{itemize}
+      \end{block}
     \vspace{1\baselineskip}
+    \includegraphics[width=1.1\textwidth, angle=0, origin=c]{../figures/ch1_intro/fig-atom_to_CG_PE/subfig-AA_PE.pdf}
 
-    \includegraphics[scale=0.65]{../figures/fig-all_potentials/fig-pairs/fig-pair_soft.pdf}
+    \column{0.49\textwidth}
+      \centering
+      \begin{block}{}
+        Hall et al: SDK Model
+        \begin{itemize}
+          \item 9-6 shifted LJ
+          \item Cutoff at 3.3 $\sigma$
+          \item 3 CH$_{2}$ per bead
+        \end{itemize}
+      \end{block}
+    \includegraphics[height=0.4\textheight]{../figures/ch1_intro/fig-atom_to_CG_PE/subfig-long_CG_PE.pdf}
+    \end{columns}
 
-  \column{0.29\textwidth}
+  \column{0.4\textwidth}
     \centering
+    \onslide<2>{
+    \blocktitle{Undercooling}
+    \begin{block}{}
+%      Undercooling, $\left( T_{m} - T_{c} \right)/T_{m}$, is large ($> 30\%$) \& differs b/w simulations
+%      \begin{itemize}
+      \centering
+      $\frac{\left( T_{m} - T_{c} \right)}{T_{m}} > 30\%$
+      $\left[ \frac{\left( T_{m} - T_{c} \right)}{T_{m}} \right]_{\mathrm{Exp1}} \neq \left[ \frac{\left( T_{m} - T_{c} \right)}{T_{m}} \right]_{\mathrm{Exp2}}$
+    \end{block}
+    \vspace{0.5\baselineskip}
+    \includegraphics[]{../figures/fig-cryst_cycle/fig-cryst_cycle.pdf}
+    }
 
-    \textcolor{FigOrange}{\Large \emph{Spring} bonds}
-    \vspace{1\baselineskip}
+  \end{columns}
 
-    \includegraphics[scale=0.65]{../figures/fig-all_potentials/fig-bonds/fig-bond_spring.pdf}
+% }}}
+\end{frame}
 
-  \column{0.52\textwidth}
+\begin{frame}[t]{Let's investigate effect of stiffness via a simple model of polymer behavior}
+%% {{{
+
+  \vspace{-0.5\baselineskip}
+
+  \begin{columns}[T]
+    \column{0.5\textwidth}
     \centering
+    \blocktitle{Discrete-stiffness chains}
 
+    \column{0.5\textwidth}
+    \centering
+    \blocktitle{Continuous-stiffness chains}
+
+  \end{columns}
+
+  \vspace{2.0\baselineskip}
+
+  \centering
+
+  \begin{tikzpicture}[remember picture, overlay]
+
+  \node[minimum width=15cm, minimum height=1.65cm, fill=lightblue, opacity=0.2]
+        at ([ yshift=1.9cm ] current page.center) {
+  };
+
+  \onslide<2->{
+  \node[]{
+
+  \begin{columns}[T]
+    \column{0.5\textwidth}
+    \raggedleft
+    \vspace{0.65\baselineskip}
+    \textcolor{FigGreen}{\Large \emph{Hard} spheres}
+
+    \column{0.5\textwidth}
+    \raggedright
+    \includegraphics[scale=0.65]{../figures/fig-all_potentials/fig-pairs/fig-pair_hard.pdf}
+
+  \end{columns}
+
+  };
+  }
+
+  \end{tikzpicture}
+
+
+  \vspace{2.65\baselineskip}
+
+  \begin{tikzpicture}[remember picture, overlay]
+
+  \node[minimum width=15cm, minimum height=1.9cm, fill=darkblue, opacity=0.2]
+        at ([ yshift=0.155cm ] current page.center) {
+  };
+
+  \onslide<3->{
+  \node[]{
+
+  \begin{columns}[T]
+    \column{0.5\textwidth}
+    \raggedleft
+    \vspace{1.10\baselineskip}
+    \textcolor{FigOrange}{\Large \emph{Rod} bonds}
+
+    \column{0.5\textwidth}
+    \raggedright
+    \includegraphics[scale=0.65]{../figures/fig-all_potentials/fig-bonds/fig-bond_rod.pdf}
+
+  \end{columns}
+
+  };
+  }
+
+  \end{tikzpicture}
+
+  \vspace{4.35\baselineskip}
+
+  \begin{tikzpicture}[remember picture, overlay]
+
+  \node[minimum width=15cm, minimum height=3.5cm, fill=lightblue, opacity=0.2]
+        at ([ yshift=-2.5cm ] current page.center) {
+  };
+
+  \onslide<4->{
+  \node[]{
+
+  \begin{columns}[T]
+    \column{0.5\textwidth}
+    \centering
+    \textcolor{FigPurple}{\Large \emph{Discrete} (stepwise) stiffness}
+
+    \includegraphics[scale=0.65]{../figures/fig-all_potentials/fig-bend/fig-bend_step.pdf}
+
+    \column{0.5\textwidth}
+    \centering
     \textcolor{FigPurple}{\Large \emph{Continuous} (harmonic) stiffness}
 
     \includegraphics[scale=0.65]{../figures/fig-all_potentials/fig-bend/fig-bend_harm.pdf}
 
   \end{columns}
 
+  };
   }
 
-% }}}
+  \end{tikzpicture}
+
+  \onslide<5->{
+  \begin{tikzpicture}[remember picture, overlay]
+
+    \node[fill=white, minimum width=10cm, minimum height=3cm,
+          rounded corners=0.2cm, anchor=center, opacity=0.7]
+          at (current page.center) {
+    };
+
+    \node[text width=9cm, fill=lightblue, draw=darkblue, very thick, rounded corners=0.2cm, anchor=center]
+          at (current page.center) {
+    Physics is controlled by
+    \begin{itemize}
+      \item Pairwise, bond length, bond angle potentials
+      \item Reduced temperature $ = T_{r} = k_{B}T/\epsilon_{\theta}$
+      \item Volume fraction $ = \phi = V_{\mathrm{beads}}/V_{\mathrm{box}}$
+    \end{itemize}
+    };
+
+  \end{tikzpicture}
+  }
+
+%% }}}
 \end{frame}
 
-\begin{frame}[t]{At the same $\phi$, rods with continuous stiffness undergo a 2-step transition}
-% {{{
-% Slide 3.34: At the same $\phi$, rods with harmonic stiffness experience a 2-step crystallization
+\begin{frame}[t]{The two stiffness models manifest differing phase behavior at the same $\phi$}
+%% {{{
+
   \vspace{.4\baselineskip}
 
   \centering
   \only<1>{
-    \includegraphics[]{../figures/ch5_soft/step_vs_harm/fig-WLMC/fig-WLMC_sep_profs_1.pdf}
+    \includegraphics[]{../figures/fig-WLMC_profiles_step_vs_harm/fig-WLMC_sep_profs_1.pdf}
   }
   \only<2>{
-    \includegraphics[]{../figures/ch5_soft/step_vs_harm/fig-WLMC/fig-WLMC_sep_profs_2.pdf}
+    \includegraphics[]{../figures/fig-WLMC_profiles_step_vs_harm/fig-WLMC_sep_profs_2.pdf}
   }
   \only<3>{
-    \includegraphics[]{../figures/ch5_soft/step_vs_harm/fig-WLMC/fig-WLMC_sep_profs_3.pdf}
+    \includegraphics[]{../figures/fig-WLMC_profiles_step_vs_harm/fig-WLMC_sep_profs_3.pdf}
   }
   \only<4>{
-    \includegraphics[]{../figures/ch5_soft/step_vs_harm/fig-WLMC/fig-WLMC_sep_profs_4.pdf}
+    \includegraphics[]{../figures/fig-WLMC_profiles_step_vs_harm/fig-WLMC_sep_profs_4.pdf}
   }
-% }}}
+
+%% }}}
 \end{frame}
 
-\begin{frame}[c]{The melt--nematic--crystal phase diagram strongly depends on stiffness}
-% {{{
-% Slide 3.35: The melt--nematic--crystal phase diagram depends strongly on the stiffness potential
+\begin{frame}[t]{The $\phi$--$T_{r}$ phase diagrams show strong dependence on stiffness model}
+%% {{{
 
-  \only<1>{
+  \vspace{-0.8\baselineskip}
+
   \begin{columns}[t]
 
   \column{0.5\textwidth}
     \centering
-    \vspace{0.2\baselineskip}
 
     \blocktitle{Discrete stiffness}
-    \includegraphics[scale=0.85]{../figures/ch5_soft/step_vs_harm/fig-phase_diags/from_step/fig-phase_diag.pdf}
+    \includegraphics[scale=0.8]{../figures/fig-step_vs_harm_phase_diags/from_step/fig-phase_diag.pdf}
+    \begin{block}{}
+      \centering
+      One-step nucleation
+    \end{block}
 
   \column{0.5\textwidth}
     \centering
-    \vspace{0.2\baselineskip}
 
     \blocktitle{Continuous stiffness}
-    \includegraphics[scale=0.85]{../figures/ch5_soft/step_vs_harm/fig-phase_diags/from_harm/fig-phase_diag.pdf}
+    \includegraphics[scale=0.8]{../figures/fig-step_vs_harm_phase_diags/from_harm/fig-phase_diag.pdf}
+    \begin{block}{}
+      \centering
+      Two-step nucleation
+    \end{block}
 
   \end{columns}
+
+%% }}}
+\end{frame}
+
+\begin{frame}[c]{Why? Low-$T_{r}$ chain stiffness ($l_{p}$) differs between the models}
+%% {{{
+
+  \centering
+
+%  \begin{tikzpicture}[remember picture, overlay]
+%
+%  \node[minimum width=5cm, minimum height=1.65cm, fill=csgray, opacity=1.0]
+%        at ([ xshift=7.0cm, yshift=1.9cm ] current page.center) {
+%  };
+%
+%  \end{tikzpicture}
+
+  \begin{tikzpicture}[remember picture, overlay]
+
+    \node (A) [yshift=-0.7cm] {
+      \includegraphics[]{../figures/fig-step_vs_harm_lp_vs_T/fig-lp_vs_T.pdf}
+    };
+
+    \node[minimum width=2.5cm, minimum height=2cm, fill=csgray, inner sep=0pt, rounded corners=0.2cm, align=left, draw = blue, ultra thick, above right = -2.3cm and 0cm of A] (B)
+    {
+      $l_{p} = \infty$ as $T \to 0$\\
+      Phase change driven\\
+      by alignment
+    };
+
+    \node[minimum width=2.5cm, minimum height=2cm, fill=csgray, inner sep=0pt, rounded corners=0.2cm, align=left, draw = purple, ultra thick, below left = -2.5cm and 0cm of A] (B)
+    {
+      No drive to align\\
+      after all $\theta < \theta_{s}$ \\
+      Phase change driven\\
+      by crowding
+    };
+%
+%    \node[inner sep=0pt, align=center, text width=3cm, right = 3 pt of D] (E) {
+%      \includegraphics[height=1.0cm]{figs/fig-ORC-logo.pdf}
+%    };
+%
+  \end{tikzpicture}
+
+%% }}}
+\end{frame}
+
+\begin{frame}[c]{Ultimately, the form of the stiffness potential selects the nucleation path}
+%% {{{
+
+  \centering
+  \vspace{0.5\baselineskip}
+
+  \includegraphics[width=0.85\textwidth]{../figures/fig-Letter_ToC/fig-ToC.pdf}
+
+  {\small{}Kawak, Banks, \& Tree.(Submitted)\par}
+%% }}}
+\end{frame}
+
+\begin{frame}[t]{Let's explore the effect of the pair and bond length potential}
+%% {{{
+
+  \vspace{-0.5\baselineskip}
+
+  \begin{columns}[T]
+    \column{0.5\textwidth}
+    \centering
+    \blocktitle{Hard-bead chains}
+
+    \column{0.5\textwidth}
+    \centering
+    \blocktitle{Soft-bead chains}
+
+  \end{columns}
+
+  \vspace{2.0\baselineskip}
+
+  \centering
+
+  \begin{tikzpicture}[remember picture, overlay]
+
+  \node[minimum width=15cm, minimum height=1.65cm, fill=lightblue, opacity=0.2]
+        at ([ yshift=1.9cm ] current page.center) {
+  };
+
+  \node[]{
+
+  \begin{columns}[T]
+    \column{0.5\textwidth}
+    \centering
+
+    \begin{columns}[T]
+      \column{0.35\textwidth}
+      \centering
+      \vspace{0.4\baselineskip}
+      \textcolor{FigGreen}{\Large \emph{Hard} spheres}
+
+      \column{0.65\textwidth}
+      \raggedright
+      \includegraphics[scale=0.65]{../figures/fig-all_potentials/fig-pairs/fig-pair_hard.pdf}
+
+    \end{columns}
+
+    \column{0.5\textwidth}
+    \centering
+  \onslide<2->{
+    \begin{columns}[T]
+      \column{0.35\textwidth}
+      \centering
+      \vspace{0.4\baselineskip}
+      \textcolor{FigGreen}{\Large \emph{Soft} spheres}
+
+      \column{0.65\textwidth}
+      \raggedright
+      \includegraphics[scale=0.65]{../figures/fig-all_potentials/fig-pairs/fig-pair_soft.pdf}
+    \end{columns}
+  }
+
+  \end{columns}
+
+  };
+
+  \end{tikzpicture}
+
+
+  \vspace{2.65\baselineskip}
+
+  \begin{tikzpicture}[remember picture, overlay]
+
+  \node[minimum width=15cm, minimum height=1.9cm, fill=darkblue, opacity=0.2]
+        at ([ yshift=0.155cm ] current page.center) {
+  };
+
+  \node[]{
+
+  \begin{columns}[T]
+    \column{0.5\textwidth}
+    \raggedleft
+    \begin{columns}[T]
+      \column{0.3\textwidth}
+      \centering
+      \vspace{0.8\baselineskip}
+      \textcolor{FigOrange}{\Large \emph{Rod} bonds}
+      \column{0.7\textwidth}
+      \centering
+      \includegraphics[scale=0.65]{../figures/fig-all_potentials/fig-bonds/fig-bond_rod.pdf}
+    \end{columns}
+
+    \column{0.5\textwidth}
+    \raggedright
+  \onslide<3->{
+    \begin{columns}[T]
+      \column{0.3\textwidth}
+      \centering
+      \vspace{0.8\baselineskip}
+      \textcolor{FigOrange}{\Large \emph{Spring} bonds}
+      \column{0.7\textwidth}
+      \centering
+      \includegraphics[scale=0.65]{../figures/fig-all_potentials/fig-bonds/fig-bond_spring.pdf}
+    \end{columns}
+  }
+
+  \end{columns}
+
+  };
+
+  \end{tikzpicture}
+
+  \vspace{4.35\baselineskip}
+
+  \begin{tikzpicture}[remember picture, overlay]
+
+  \node[minimum width=15cm, minimum height=3.5cm, fill=lightblue, opacity=0.2]
+        at ([ yshift=-2.5cm ] current page.center) {
+  };
+
+  \node[align=center]{
+
+    \textcolor{FigPurple}{\Large \emph{Continuous} (harmonic) stiffness} \\
+
+    \includegraphics[scale=0.65]{../figures/fig-all_potentials/fig-bend/fig-bend_harm.pdf}
+
+  };
+
+  \end{tikzpicture}
+
+  \onslide<4->{
+  \begin{tikzpicture}[remember picture, overlay]
+
+    \node[fill=white, minimum width=10cm, minimum height=3.6cm,
+          rounded corners=0.2cm, anchor=center, opacity=0.7]
+          at (current page.center) {
+    };
+
+    \node[text width=9cm, fill=lightblue, draw=darkblue, very thick, rounded corners=0.2cm, anchor=center]
+          at (current page.center) {
+    Physics is controlled by
+    \begin{itemize}
+      \item Pairwise, bond length, bond angle potentials
+      \item Reduced temperature $ = T_{r} = k_{B}T/\epsilon_{\theta}$
+      \item Volume fraction $ = \phi = V_{\mathrm{beads}}/V_{\mathrm{box}}$
+      \item Stiffness strength $ = \epsilon^{*}_{\theta} = \epsilon_{\theta}/\epsilon_{\mathrm{pair}}$ (soft spheres)
+    \end{itemize}
+    };
+
+  \end{tikzpicture}
+  }
+
+%% }}}
+\end{frame}
+
+\begin{frame}[c]{Properly scaled phase behavior is universal!}
+% {{{
+  \centering
+  \vspace{\baselineskip}
+  \includegraphics{../figures/fig-phase_diag_corr/fig-phase_diag_corr.pdf}
+%% }}}
+\end{frame}
+
+\begin{frame}[c]{Conclusion: ``This work opens more questions than it answers''}
+%% {{{
+
+    \begin{columns}[T, onlytextwidth]
+
+    \column{0.62\textwidth}
+      \vspace{-\baselineskip}
+      \begin{block}{Polymer models affect nucleation mechanisms}
+        \begin{itemize}
+            \item Stiffness model selection determines pathways
+          \begin{itemize}
+            \item Discrete - unique cooperative nucleation
+            \item Continuous - more in line with SOMM
+          \end{itemize}
+          \item Softness and stiffness strength less consequential
+          \begin{itemize}
+            \item $T_{r}$ corrects for varying stiffness
+            \item $\phi_{\mathrm{eff}}$ corrects for varying $T_{m}$
+          \end{itemize}
+          \item {\small{}Kawak et al.~JCP~(2021)\par}
+          \item {\small{}Kawak et al.~(Submitted) \par}
+        \end{itemize}
+      \end{block}
+      \begin{block}{Consequences to polymer theory}
+        \begin{itemize}
+          \item Is stiffness more important than connectivity?
+          \item Do dihedrals or attraction change conclusions?
+        \end{itemize}
+      \end{block}
+
+    \column{0.33\textwidth}
+      \centering
+      \includegraphics[width=139pt]{../figures/fig-oldnew/fig-CNTP_Free_Energy.pdf}
+      \includegraphics[width=139pt]{../figures/fig-oldnew/fig-SOMM_Free_Energy.pdf}
+
+  \end{columns}
+
+%% }}}
+\end{frame}
+
+\begin{frame}[c]{Conclusion -- Polymer Crystallization}
+% {{{
+
+  \begin{columns}[T, onlytextwidth]
+
+  \column{0.48\textwidth}
+
+    \vspace{-0.6\baselineskip}
+
+    \centering
+    \begin{block}{Discrete-bending semiflexible oligomers}
+      \begin{itemize}
+      \item No intermediate between melt and crystal
+      \item Nematic \& positional ordering \emph{cooperate} in nucleation
+    \end{itemize}
+    \end{block}
+
+    \vspace{8pt}
+    \includegraphics[scale=0.6]{../figures/fig-step_vs_harm_phase_diags/from_step/fig-phase_diag.pdf}
+
+    {\scriptsize{}Kawak et al.~J.~Chem.~Phys. 155, 214902 (2021)\par}
+
+  \column{0.44\textwidth}
+
+    \vspace{-0.6\baselineskip}
+
+    \centering
+
+    \centering
+    \begin{block}{All other (?) semiflexible oligomers}
+      \begin{itemize}
+      \item Yes intermediate between melt and crystal!
+      \item Separate phase transitions with lower barriers.
+    \end{itemize}
+    \end{block}
+
+    \vspace{8pt}
+    %\includegraphics[width=0.9\textwidth]{figs/fig-phase_diag_soft.pdf}
+    \includegraphics[scale=0.6]{../figures/fig-step_vs_harm_phase_diags/from_harm/fig-phase_diag.pdf}
+
+
+  \end{columns}
+
+  \begin{tikzpicture}[remember picture, overlay]
+
+    \only<2>{
+
+    \node[fill=white, minimum width=17cm, minimum height=8.2cm,
+          anchor=south, opacity=0.6]
+          at (current page.south) {
+    };
+
+    \node[text width=8.0cm, align=center, rounded corners=0.2cm,
+          fill=lightblue, draw=darkblue, thick, anchor=center] at (current page.center) {
+      I have more questions!\\[4pt]
+      \hrule
+        \begin{itemize}
+          \item Larger molecular weights
+          \item Constant pressure ensembles
+          \item Nucleus shape
+          \item Chemically specific intermolecular potentials
+        \end{itemize}
+    };
+    }
+
+  \end{tikzpicture}
+
+  \onslide
+
+%% }}}
+\end{frame}
+
+\againframe<5>{outline} % {{{ % }}}
+
+\begin{frame}[t]{Domain decomposition enables parallel computation}
+% {{{
+% Slide 1.12: Domain decomposition enables parallel computation
+
+  \only<1>{
+    \centering
+    \vspace{.5\baselineskip}
+
+    \includegraphics[height=0.85\textheight]{figs/just_cube_wdims_wpols.pdf}
   }
 
   \only<2>{
   \begin{columns}[T]
 
-  \column{0.45\textwidth}
-
+  \column{0.5\textwidth}
     \centering
-    \textcolor{FigPurple}{\Large Discrete stiffness}
-    \vspace{0.5\baselineskip}
+    \vspace{-.5\baselineskip}
 
-    \includegraphics[scale=0.65]{../figures/fig-all_potentials/fig-bend/fig-bend_step.pdf}
+    \blocktitle{Serial MC}
+    \vspace{.5\baselineskip}
 
-    \vspace{\baselineskip}
+    \includegraphics[width=0.85\textwidth]{figs/just_cube_wdims_wpols.pdf}
 
-    \textcolor{FigPurple}{\Large Continuous stiffness}
-    \vspace{0.5\baselineskip}
-
-    \includegraphics[scale=0.65]{../figures/fig-all_potentials/fig-bend/fig-bend_harm.pdf}
-
-  \column{0.55\textwidth}
-
+  \column{0.5\textwidth}
     \centering
-    \vspace{0.5\baselineskip}
+    \vspace{-.5\baselineskip}
 
-    \includegraphics[scale=1.0]{../figures/ch5_soft/step_vs_harm/fig-phase_diags/fig-phase_diag.pdf}
-    
+    \blocktitle{Parallel MC}
+    \vspace{.5\baselineskip}
+
+    \includegraphics[width=0.85\textwidth]{figs/checkerboard_cube_wpols.pdf}
+
   \end{columns}
-
   }
+
 % }}}
 \end{frame}
 
+\begin{frame}[t]{Although the parallel algorithm was faster, it was not enough}
+% {{{
+% Slide 1.13: Domain decomposition enables parallel computation
+
+  \begin{columns}[T]
+
+  \column{0.5\textwidth}
+    \centering
+    \vspace{.5\baselineskip}
+    \includegraphics[]{../figures/ch3_gpu/fig-speedup_new/fig-speedup.pdf}
+
+  \column{0.5\textwidth}
+
+    \centering
+    \begin{block}{What we've done}
+      Built GPU-accelerated WLMC utilizing
+      \begin{itemize}
+      \item Domain and function decomposition
+      \item Advanced polymer moveset
+    \end{itemize}
+    \end{block}
+
+    \begin{block}{What we've learnt}
+      \begin{itemize}
+        \item Speedups are modest
+        \item Can't simulate large polymers
+        \item Focus on small models
+        \item Focus on accelerated biased sampling
+        \item Build FEL with MC methods
+      \end{itemize}
+    \end{block}
+
+  \end{columns}
+
+%% }}}
+\end{frame}
+
+\begin{frame}[t]{Acknowledgements}
+%% {{{
+% Slide 3.42: Acknowledgements
+
+  \centering
+  \begin{tikzpicture}
+    \node[text width=0.6\columnwidth, align=center, inner sep=0pt, xshift=-0.3] (A) {
+    \includegraphics[width=\textwidth]{figs/Tree_Group_Photo_2022.jpg}
+    };
+
+    \node[text width=0.36\columnwidth, align=center, above left= 3.15cm and -6.0cm of A.east, anchor=north east, inner sep=0pt] (B) {
+    \includegraphics[width=\textwidth]{figs/GSC_Group_Photo_2021.jpg}
+    };
+
+    \node[text width=0.36\columnwidth, align=center, above left= -1.0cm and -6.0cm of A.east, anchor=north east, inner sep=0pt] (C) {
+    \includegraphics[width=\textwidth]{figs/Tree_Group_Photo_cake.jpg}
+    };
+
+  \end{tikzpicture}
+
+  \begin{tikzpicture}[remember picture, overlay]
+
+    \node[inner sep=0pt, align=center, text width=2cm, anchor=south west] at ([yshift=0.3cm, xshift=0.1cm] current page.south west) (A) {
+      \includegraphics[height=1.0cm]{./figs/BYU_IM26b.pdf}
+    };
+
+    \node[inner sep=0pt, align=center, right=20 pt of A.east] (D)
+    {
+      \includegraphics[height=1.2cm]{./figs/ACS-PRF_logo.jpg}
+    };
+
+    \node[inner sep=0pt, align=center, text width=3cm, right = 3 pt of D] (E) {
+      \includegraphics[height=1.0cm]{figs/fig-ORC-logo.pdf}
+    };
+
+  \end{tikzpicture}
+%% }}}
+\end{frame}
+%% THE END
+
 \begin{frame}[c]{Softness and variable bonds shift the phase boundaries to lower $T$}
 % {{{
-% Slide 3.36: Softness and variable bonds shift the phase boundaries to lower $T$
 
   \begin{columns}[T]
 
@@ -1999,15 +2648,14 @@
     \centering
     \vspace{0.5\baselineskip}
 
-    \includegraphics[]{../figures/ch5_soft/soft_vs_hard/fig-phase_diag.pdf}
+    \includegraphics[]{../figures/fig-soft_vs_hard_phase_diag/fig-phase_diag.pdf}
 
   \end{columns}
 % }}}
 \end{frame}
 
-\begin{frame}[c]{However, comparison of soft and hard beads requires a correction}
+\begin{frame}[c]{However, comparison of soft \& hard beads demonstrates the need for $\phi_{\mathrm{eff}}$}
 % {{{
-% Slide 3.37: However, comparison of soft and hard beads requires a correction
   \begin{columns}
 
   \column{0.39\textwidth}
@@ -2015,94 +2663,23 @@
     \vspace{\baselineskip}
 
     \only<1>{
-    \includegraphics[scale=0.9]{../figures/ch5_soft/fig-reff_T/subfig-reff_T.pdf}
+      \includegraphics[scale=0.9]{../figures/fig-reff_T/subfig-reff_T.pdf}
     }
     \only<2>{
-    \includegraphics[scale=0.9]{../figures/ch5_soft/fig-reff_T/fig-reff_T.pdf}
+      \includegraphics[scale=0.9]{../figures/fig-reff_T/fig-reff_T.pdf}
     }
 
   \column{0.6\textwidth}
     \centering
     \vspace{\baselineskip}
 
-    \includegraphics<1>[height=0.7\textheight]{../figures/ch5_soft/fig-reff_T/subfig-soft_reff.pdf}
-    \includegraphics<2>[scale=0.95]{../figures/ch5_soft/soft_vs_hard/fig-phase_diag_phi_eff.pdf}
+    \includegraphics<1>[height=0.7\textheight]{../figures/fig-reff_T/subfig-soft_reff.pdf}
+    \includegraphics<2>[scale=0.95]{../figures/fig-soft_vs_hard_phase_diag/fig-phase_diag_phi_eff.pdf}
 
   \end{columns}
 
 % }}}
 \end{frame}
-%
-%\begin{frame}[c]{Softness and variable bonds shift the phase boundaries to lower $T$}
-%% {{{
-%% Slide 3.36: Softness and variable bonds shift the phase boundaries to lower $T$
-%  \begin{columns}
-%
-%  \column{0.5\textwidth}
-%    \centering
-%    \vspace{0.2\baselineskip}
-%
-%    \includegraphics[scale=0.85]{../figures/ch5_soft/soft_vs_hard/fig-phase_diag_phi.pdf}
-%
-%  \column{0.5\textwidth}
-%    \centering
-%    \vspace{0.2\baselineskip}
-%
-%    \includegraphics[scale=0.85]{../figures/ch5_soft/soft_vs_hard/fig-phase_diag_phi_eff.pdf}
-%
-%  \end{columns}
-%
-%% }}}
-%\end{frame}
-%
-%\begin{frame}<1-2>[c]{Soft beads and continuous stiffness better approximates a real polymer}
-%% {{{
-%  \begin{columns}[T]
-%
-%  \column{0.44\textwidth}
-%
-%    \centering
-%    \vspace{-1.0\baselineskip}
-%      \onslide<1->{
-%      \begin{equation*}
-%      U_{tot} = U_{\mathrm{WCA}}(r_{ij}) + U_{\mathrm{bond}}(l) + U_{\mathrm{bend}}(\theta)
-%      \end{equation*}
-%      \begin{equation*}
-%        U_{\mathrm{WCA}} =
-%        \begin{cases} 
-%          4\epsilon \left[ \frac{\sigma}{r_{ij}}^{12} - \frac{\sigma}{r_{ij}}^6 \right] + \epsilon & r_{\mathrm{ij}} < r_{c} \\
-%          0 & r_{\mathrm{ij}} \ge r_{c}
-%        \end{cases}
-%      \end{equation*}
-%      \begin{equation*}
-%        U_{bond} = \kappa \left( l - l_{0} \right) ^2
-%      \end{equation*}
-%      \begin{equation*}
-%        U_{bend} = k_{b} \left( 1 - \cos \theta \right)
-%      \end{equation*}
-%      }
-%   %   \includegraphics[scale=0.26]{figs/fig-hard_sphere_rod.pdf}
-%
-%%    \blocktitle{Classical Nucleation Theory for Polymers}
-%%    \includegraphics[]{figs/fig-CNTP_Free_Energy.pdf}
-%    \begin{block}{}
-%      \begin{itemize} 
-%        \item Nematic intermediate (SOMM?)
-%        \item Comparison to hard bead chains
-%        \item What parameters to explore?
-%        \item $l_{b}/\sigma, k_{B}T/k_{b}, \epsilon/k_{b},$ MW
-%      \end{itemize}
-%    \end{block}
-%
-%  \column{0.59\textwidth}
-%
-%      \includegraphics<1>[]{../figures/fig-soft_WLMC_P2_Q6/fig-soft_WLMC_P2_Q6.pdf}
-%
-%      \includegraphics<2>[]{../figures/fig-phase_diag_soft/fig-phase_diag_soft.pdf}
-%
-%  \end{columns}
-%%% }}}
-%\end{frame}
 
 \begin{frame}[t]{Softness and continuous stiffness add a stiffness strength, $k_{b}^{*} = k_{b}/\epsilon$}
 % {{{
@@ -2114,204 +2691,36 @@
     \centering
     \vspace{0.2\baselineskip}
 
-    \includegraphics[]{../figures/ch5_soft/fig-soft_phase_diag_vs_kb/fig-phase_diag_phi_HS.pdf}
+    \includegraphics[]{../figures/fig-soft_phase_diag_vs_kb/fig-phase_diag_phi_HS.pdf}
 
   \column{0.5\textwidth}
     \centering
     \vspace{0.2\baselineskip}
 
-    \includegraphics[]{../figures/ch5_soft/fig-soft_phase_diag_vs_kb/fig-phase_diag_phi_eff.pdf}
+    \includegraphics[]{../figures/fig-soft_phase_diag_vs_kb/fig-phase_diag_phi_eff.pdf}
 
   \end{columns}
 % }}}
 \end{frame}
 
-%\begin{frame}<1>[c]{Soft beads and continuous stiffness tells a different story\textcolor{FigPurple}{*}}
+\begin{frame}[c]{What explains the collapse of data? $l_{p} \neq f \left( \epsilon^{*}_{l}, \epsilon^{*}_{\theta} \right)$}
 %% {{{
-%% Slide 3.39: Effect of bending stiffness.
-%  \only<1>{
-%    \begin{columns}[T]
-%
-%    \column{0.5\textwidth}
-%      \centering
-%%      \vspace{-0.5\baselineskip}
-%        \blocktitle{At $\phi$, transition after quench\\to below $T_{\mathrm{Isotropic-Nematic}}$}
-%        \includegraphics[]{../figures/fig-pathway_soft_nematic/fig-pathway_soft_nematic_wConfs_small.pdf}
-%
-%    \column{0.5\textwidth}
-%      \centering
-%%      \vspace{-0.5\baselineskip}
-%        \blocktitle{At same $\phi$, further cooling\\leads to $T_{\mathrm{Crystallization}}$}
-%        \includegraphics[]{../figures/fig-pathway_soft_cryst/fig-pathway_soft_cryst_wConfs_small.pdf}
-%    \end{columns}
-%  }
-%
-%  \begin{tikzpicture}[remember picture, overlay]
-%    \node[text width=8cm, align=center, anchor=south east] at ([xshift=-2.0cm,yshift=0.0cm] current page.south) {
-%      \small \textcolor{FigPurple}{*\textbf{Preliminary results}}\par
-%    };
-%  \end{tikzpicture}
-%
-%%  \onslide<2>{
-%%    \begin{columns}[T, onlytextwidth]
-%%
-%%    \column{0.61\textwidth}
-%%    \vspace{1.0\baselineskip}
-%%      \begin{columns}[T]
-%%        \column{0.5\textwidth}
-%%          \centering
-%%          \begin{block}{System 1:\\Hard sphere rod chains}
-%%            \begin{itemize}
-%%              \item Hard sphere
-%%              \item Constant bond length
-%%              \item Stepwise stiffness
-%%              \item No single $\phi$ with both (i.e.\ no intermediate)
-%%              \item Neither classical nor SOMM hypothesis
-%%            \end{itemize}
-%%          \end{block}
-%%        \column{0.5\textwidth}
-%%          \centering
-%%          \begin{block}{System 2:\\Soft bead spring chains}
-%%            \begin{itemize}
-%%              \item Soft beads
-%%              \item Harmonic springs
-%%              \item Harmonic stiffness
-%%              \item $T_{IN}$ \& $T_{C}$ at same $\phi$
-%%              \item SOMM hypothesis applies
-%%            \end{itemize}
-%%          \end{block}
-%%      \end{columns}
-%%
-%%%      \blocktitle{At $\phi$, transition after quench\\to below $T_{\mathrm{Isotropic-Nematic}}$}
-%%      %\includegraphics[width=\textwidth, height=0.4\textheight]{../figures/fig-pathway_soft_nematic/fig-pathway_soft_nematic_wConfs.pdf}
-%%    \column{0.35\textwidth}
-%%      \includegraphics[]{../figures/fig-pathway_soft_nematic/fig-pathway_soft_nematic_wConfs_smaller.pdf}
-%%%      \blocktitle{At same $\phi$, further cooling\\leads to $T_{\mathrm{Crystallization}}$}
-%%      \includegraphics[]{../figures/fig-pathway_soft_cryst/fig-pathway_soft_cryst_wConfs_smaller.pdf}
-%%  \end{columns}
-%%  \leavevmode\par
-%%
-%%  \begin{tikzpicture}[remember picture, overlay]
-%%    \node[text width=8cm, align=center, anchor=south east] at ([xshift=0.5cm,yshift=1.2cm] current page.south) {
-%%      \small Kawak, Banks, \& Tree.\ In Preparation (2022)\par
-%%    };
-%%  \end{tikzpicture}
-%%  }
-%
-%%% }}}
-%\end{frame}
-%
-\begin{frame}[c]{Conclusion: ``This work opens more questions than it answers''}
-% {{{
-% Slide 3.40: Conclusions!
 
-    \begin{columns}[T, onlytextwidth]
+  \begin{columns}[T]
 
-    \column{0.62\textwidth}
-      \vspace{-\baselineskip}
-      \begin{block}{Polymer models affect nucleation mechanisms}
-        \begin{itemize}
-            \item Stiffness model selection determines pathways
-          \begin{itemize}
-            \item Discrete - unique cooperative nucleation
-            \item Continuous - more in line with SOMM
-          \end{itemize}
-          \item Softness and stiffness strength less consequential
-          \begin{itemize}
-            \item $T_{r}$ corrects for varying stiffness
-            \item $\phi_{\mathrm{eff}}$ corrects for varying $T_{m}$
-          \end{itemize}
-          \item {\small{}Kawak et al.~JCP~(2021)\par}
-          \item {\small{}Kawak et al.~(In Prep) \par}
-        \end{itemize}
-      \end{block}
-      \begin{block}{Consequences to polymer theory}
-        \begin{itemize} 
-          \item Is stiffness more important than connectivity?
-          \item Do dihedrals or attraction change conclusions?
-        \end{itemize}
-      \end{block}
+  \column{0.48\textwidth}
+    \centering
+      \blocktitle{Phase behavior looks universal}
+      \includegraphics[]{../figures//fig-soft_phase_diag_vs_kb/fig-phase_diag_phi_eff_small.pdf}
 
-    \column{0.33\textwidth}
-      \centering
-      \includegraphics[width=139pt]{figs/fig-CNTP_Free_Energy.pdf}
-      \includegraphics[width=139pt]{figs/fig-SOMM_Free_Energy.pdf}
-
+  \column{0.48\textwidth}
+    \centering
+      \blocktitle{Discrete vs continuous bending}
+      \includegraphics[]{../figures/fig-all_lp_vs_T/fig-lp_vs_T.pdf}
   \end{columns}
 
 %% }}}
 \end{frame}
-
-\begin{frame}[c]{Conclusions}
-% {{{
-% Slide 3.41: Conclusions!
-
-  \centering
-
-  \begin{block}{What's next for this research?}
-    \begin{itemize} 
-      \item What is the effect of more complex potentials? Attraction? Torsional?
-      \item Does MD provide similar insights? Compare $t_{\mathrm{order}}$. Thermo versus Kinetics.
-      \item FELs of two-step nucleation? Extra dimension of $T_{r}$
-    \end{itemize}
-  \end{block}
-  
-  \only<2>{
-  \begin{block}{What I've accomplished here at BYU}
-    \begin{itemize}
-      \item Two open source algorithms for GPU and FEL methods to simulate polymers
-      \item One peer-reviewed article {\small{}Kawak et al.~JCP~(2021)} and three more in the works
-      \item Presented this work at APS and AIChE annual conferences (2020-2022)
-      \item Identified a viable approach to address nucleation mechanisms
-      \item Validated the importance of careful model selection to studying crystal nucleation
-      \item Cofounded and led the Graduate Student Council in our department
-      \item Worked collaboratively with 7 undergraduate researchers
-    \end{itemize}
-  \end{block}
-  }
-
-%% }}}
-\end{frame}
-
-\begin{frame}[t]{Acknowledgements}
-%% {{{
-% Slide 3.42: Acknowledgements
-
-  \centering
-  \begin{tikzpicture}
-    \node[text width=0.6\columnwidth, align=center, inner sep=0pt, xshift=-0.3] (A) {
-    \includegraphics[width=\textwidth]{figs/Tree_Group_Photo_2022.jpg}
-    }; 
-
-    \node[text width=0.36\columnwidth, align=center, above left= 3.15cm and -6.0cm of A.east, anchor=north east, inner sep=0pt] (B) {
-    \includegraphics[width=\textwidth]{figs/GSC_Group_Photo_2021.jpg}
-    }; 
-
-    \node[text width=0.36\columnwidth, align=center, above left= -1.0cm and -6.0cm of A.east, anchor=north east, inner sep=0pt] (C) {
-    \includegraphics[width=\textwidth]{figs/Tree_Group_Photo_cake.jpg}
-    }; 
-
-  \end{tikzpicture}
-
-  \begin{tikzpicture}[remember picture, overlay]
-
-    \node[inner sep=0pt, align=center, text width=2cm, anchor=south west] at ([yshift=0.3cm, xshift=0.1cm] current page.south west) (A) { 
-      \includegraphics[height=1.0cm]{./figs/BYU_IM26b.pdf}
-    };
-
-    \node[inner sep=0pt, align=center, right=20 pt of A.east] (D)
-    { 
-      \includegraphics[height=1.2cm]{./figs/ACS-PRF_logo.jpg}
-    };
-
-    \node[inner sep=0pt, align=center, text width=3cm, right = 3 pt of D] (E) { 
-      \includegraphics[height=1.0cm]{figs/fig-ORC-logo.pdf}
-    };
-
-  \end{tikzpicture}
-%% }}}
-\end{frame}
-%% THE END
 
 %TODO add 10p25 quivers
 %TODO decompose 10p25 into delS and delU to make the point
@@ -2371,7 +2780,7 @@
   \color{red}\State $R_{\mathrm{new}} \gets $do\_move()
   \color{black}\State $E_{\mathrm{new}} \gets $calc\_energy($R_{\mathrm{new}}$)
   \State $P_{\mathrm{acc}} \gets $exp($-\beta(E_{\mathrm{new}}-E)$)
-  \If{$P_{\mathrm{acc}} > $ rand(0,1)} 
+  \If{$P_{\mathrm{acc}} > $ rand(0,1)}
 %    \Comment{Accept with $P_{\mathrm{acc}}$}
     \State $E \gets E_{\mathrm{new}}$
     \State $R \gets R_{\mathrm{new}}$
@@ -2392,19 +2801,19 @@
   \onslide<3>{
   \begin{tikzpicture}[remember picture, overlay]
 
-    \node[fill=white, minimum width=6cm, minimum height=2cm, 
-          rounded corners=0.2cm, anchor=center, opacity=0.7] 
+    \node[fill=white, minimum width=6cm, minimum height=2cm,
+          rounded corners=0.2cm, anchor=center, opacity=0.7]
           at (current page.center) {
     };
 
-    \node[text width=5cm, fill=lightblue, draw=darkblue, very thick, rounded corners=0.2cm, anchor=center] 
+    \node[text width=5cm, fill=lightblue, draw=darkblue, very thick, rounded corners=0.2cm, anchor=center]
           at (current page.center) {
       How can we "GPU-accelerate"\\inherently serial code?
     };
 
   \end{tikzpicture}
   }
-  
+
 % }}}
 \end{frame}
 
@@ -2425,7 +2834,7 @@
     \vspace{0.7\baselineskip}
     \scriptsize Anderson et al.~J.~Comp.~Phys. (2013)
   \end{columns}
-  
+
 % }}}
 \end{frame}
 
@@ -2509,17 +2918,17 @@
     \centering
     \begin{block}{What we've done}
       Built GPU-accelerated WLMC utilizing
-      \begin{itemize} 
+      \begin{itemize}
       \item Domain and function decomposition
       \item Advanced polymer moveset
     \end{itemize}
     \end{block}
 
     \begin{block}{What we've learnt}
-      \begin{itemize} 
+      \begin{itemize}
         \item Problem: Too many OoM
         \item Should investigate order parameter response (potentials of mean force)
-        \item Focus on specific temperature 
+        \item Focus on specific temperature
       \end{itemize}
     \end{block}
 
@@ -2527,16 +2936,16 @@
     \begin{tikzpicture}
 
       \node[inner sep=0pt, align=center ] (A)
-      { 
+      {
         \includegraphics[height=1.0cm]{./figs/BYU_IM26b.pdf}
       };
 
       \node[inner sep=0pt, align=center, anchor=center, right=9 pt of A.east] (B)
-      { 
+      {
         \includegraphics[height=1.2cm]{./figs/ACS-PRF_logo.jpg}
       };
 
-      \node[inner sep=0pt, align=center, text width=3cm, right = 3 pt of B] (C) { 
+      \node[inner sep=0pt, align=center, text width=3cm, right = 3 pt of B] (C) {
         \includegraphics[height=1.0cm]{figs/fig-ORC-logo.pdf}
       };
 
@@ -2550,11 +2959,11 @@
     \vspace{8pt}
     \begin{tikzpicture}
 
-      \node[inner sep=0pt, align=center, text width=2cm] (D) { 
+      \node[inner sep=0pt, align=center, text width=2cm] (D) {
         \includegraphics[height=2.0cm]{figs/Douglas.jpeg}
       };
 
-      \node[inner sep=0pt, align=center, text width=2cm, right= 0 pt of D.east, anchor=west] (E) { 
+      \node[inner sep=0pt, align=center, text width=2cm, right= 0 pt of D.east, anchor=west] (E) {
         \includegraphics[height=2.0cm]{figs/Dakota.pdf}
       };
 
@@ -2562,7 +2971,7 @@
 
 
   \end{columns}
-  
+
 %% }}}
 \end{frame}
 
@@ -2578,7 +2987,7 @@
   \column{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/ch4_jcp/fig-quivers_10p75/fig-quiver_10.75.pdf}
-     
+
   \end{columns}
 
 %% }}}
@@ -2596,7 +3005,7 @@
   \column{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/ch4_jcp/fig-quivers_10p75/fig-mTS_quiver_10.75.pdf}
-     
+
   \end{columns}
 
 %% }}}
@@ -2614,7 +3023,7 @@
   \column{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/ch4_jcp/fig-quivers_10p25/fig-quiver_10p25.pdf}
-     
+
   \end{columns}
 
 % }}}
@@ -2632,7 +3041,7 @@
   \column{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{../figures/ch4_jcp/fig-quivers_10p25/fig-mTS_quiver_10p25.pdf}
-     
+
   \end{columns}
 
 % }}}
@@ -2660,7 +3069,7 @@
 % {{{
 
   \centering
-  \includegraphics[height=\textheight]{../figures/ch2_method/fig-potentials/fig-potentials.pdf}
+  \includegraphics[height=\textheight]{../figures/fig-potentials/fig-potentials.pdf}
 
 % }}}
 \end{frame}
@@ -2669,7 +3078,7 @@
 % {{{
 
   \centering
-    \includegraphics[width=\textwidth]{../figures/ch2_method/fig-acf/fig-acf.pdf}
+  \includegraphics[width=\textwidth]{../figures/fig-acf/fig-acf.pdf}
 
 % }}}
 \end{frame}
@@ -2678,7 +3087,7 @@
 % {{{
 
   \centering
-    \includegraphics[height=\textheight]{../figures/ch2_method/fig-phase_confs/fig-phase_confs.pdf}
+  \includegraphics[height=\textheight]{../figures/fig-phase_confs/fig-phase_confs.pdf}
 
 % }}}
 \end{frame}
@@ -2687,7 +3096,7 @@
 % {{{
 
   \centering
-    \includegraphics[height=\textheight]{../figures/ch2_method/fig-UandCv/fig-UandCv.pdf}
+  \includegraphics[height=\textheight]{../figures/fig-UandCv/fig-UandCv.pdf}
 
 % }}}
 \end{frame}
@@ -2696,7 +3105,7 @@
 % {{{
 
   \centering
-    \includegraphics[height=\textheight]{../figures/ch2_method/fig-polymer_sizes/fig-polymer_sizes.pdf}
+  \includegraphics[height=\textheight]{../figures/fig-polymer_sizes/fig-polymer_sizes.pdf}
 
 % }}}
 \end{frame}
@@ -2786,7 +3195,7 @@
 % {{{
 
   \centering
-  \includegraphics[height=\textheight]{../figures/ch4_jcp_from_diss/fig-pathway_ToC_chains/fig-pathway_ToC_chains.pdf}
+  \includegraphics[height=\textheight]{../figures/fig-pathway_ToC_chains/fig-pathway_wArrow.pdf}
 
 % }}}
 \end{frame}
@@ -2804,7 +3213,7 @@
 % {{{
 
   \centering
-  \includegraphics[height=\textheight]{../figures/ch4_jcp_from_diss/fig-lp_vs_T/fig-lp_vs_T.pdf}
+  \includegraphics[height=\textheight]{../figures/fig-step_lp_vs_T/fig-lp_vs_T.pdf}
 
 % }}}
 \end{frame}
@@ -2831,7 +3240,7 @@
 % {{{
 
   \centering
-  \includegraphics[height=\textheight]{../figures/ch4_jcp_from_diss/fig-confs_plus_structs/fig-confs_plus_structs.pdf}
+  \includegraphics[height=\textheight]{../figures/fig-confs_plus_structs/fig-confs_plus_structs.pdf}
 
 % }}}
 \end{frame}
@@ -2957,7 +3366,7 @@
 % {{{
 
   \centering
-  \includegraphics[height=\textheight]{../figures/ch5_soft_from_diss/fig-all_lp_vs_T/fig-lp_vs_T.pdf}
+  \includegraphics[height=\textheight]{../figures/fig-all_lp_vs_T/fig-lp_vs_T.pdf}
 
 % }}}
 \end{frame}
@@ -3025,21 +3434,6 @@
 % }}}
 \end{frame}
 
-\begin{frame}[t]{Thank you for not being stereotypical!}
-%% {{{
-% Slide 3.42: Acknowledgements
-
-  \centering
-  \begin{tikzpicture}
-    \node[text width=0.7\columnwidth, align=center, inner sep=0pt] (A) {
-    \includegraphics[width=\textwidth]{figs/committee_meme.png}
-    }; 
-
-  \end{tikzpicture}
-
-%% }}}
-\end{frame}
-
 \begin{frame}{Monte Carlo (MC) simulations can simulate material phase behavior}
 % {{{
 % Slide 0.9:  What are MC sims?
@@ -3056,24 +3450,23 @@
   \only<1>{
     \includegraphics[width=\textwidth]{figs/fig-CG_MolSim_1.pdf}
   }
-  
+
   \only<2>{
     \includegraphics[width=\textwidth]{figs/fig-CG_MolSim_2.pdf}
   }
-  
+
   \only<3>{
     \includegraphics[width=\textwidth]{figs/fig-CG_MolSim_3.pdf}
   }
-  
+
   \only<4>{
     \includegraphics[width=\textwidth]{figs/fig-CG_MolSim_4.pdf}
   }
-  
+
   \only<5>{
     \includegraphics[width=\textwidth]{figs/fig-CG_MolSim.pdf}
   }
 % }}
 \end{frame}
-
 
 \end{document}
